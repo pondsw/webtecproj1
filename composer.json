@@ -1,0 +1,8 @@
+{
+    "require": {
+        "endroid/qrcode": "^1.9"
+    },
+	"config": {
+		"vendor-dir" : "packages"
+	}
+}
