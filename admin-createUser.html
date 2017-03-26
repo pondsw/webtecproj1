@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bootstrap tutorials by Siam HTML</title>
+
+<link href=".css/bootstrap.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/profilebar.css">
+<link rel="stylesheet" type="text/css" href="./css/table-c.css">
+  <link rel="stylesheet" type="text/css" href="./css/modal.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+<style type="text/css">
+.navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
+	color: #FFFFFF;
+}
+.navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
+	color: #FFFFFF;
+}
+</style>
+</head>
+<body>
+<!-- Image and text -->
+
+
+    <nav class="navbar navbar-light bg-faded">
+    <div class="container-fluid">
+      <div class="navbar-header" > <a class="navbar-brand"  href="#"> <img src="./images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" > </a>
+        <p></br>Learning Management System</p>
+      </div>
+      <ul class="nav navbar-right navbar-nav">
+        <!----<li><a href="#">Profile</a></li>
+                <li><a href="#">Logout</a></li>--->
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user pull-right"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-user pull-right"></span>Profile</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-out pull-right"> </span>Sign Out</a></li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</nav>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src="./images/empty.png" width="50px" height="50px" class="img-responsive" alt="">
+
+                 <div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						Name
+					</div>
+					<div class="profile-usertitle-job">
+						Admin
+					</div>
+				</div>
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+
+					  <li ><a href="admin-attenjj.html">
+							<i class="glyphicon glyphicon-home"></i>
+							Home </a>
+					  </li>
+
+						<li class="active">
+							<a href="#" >
+							<i class="fa fa-user-plus" aria-hidden="true"></i>
+							Create User </a>
+						</li>
+
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-book"></i>
+							Registeration Report </a>
+						</li>
+
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+	<!-- ADD HERE -->
+
+
+     <div class="col-md-0 col-md-offset-3" >
+
+        <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModal">
+
+          <span  class="fa fa-user-plus" aria-hidden="true"></span> Create User </br>
+        </button>
+         <select name="subject" value="" style="width: 150px">
+	<option value=""> Teacher</option>
+    <option value=""> Teacher-Lab</option>
+    <option value=""> Student</option>
+     </select>
+  <button type="button" class="btn btn-success btn-sm"  >
+          <span class="glyphicon glyphicon-export"></span> Export </br>
+        </button>
+
+
+         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-warning">
+
+                    <h2><i class="fa fa-user-plus" aria-hidden="true"></i> Create User</h2>
+
+      </div>
+      <div class="modal-body">
+               <form class="form-horizontal col-sm-12">
+          <div class="left-inner-addon ">
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <input type="text"
+           class="form-control"
+           placeholder="Firstname" />
+</div>
+<div> </br></div>
+                           <div class="left-inner-addon ">
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <input type="text"
+           class="form-control"
+           placeholder="Lastname" />
+</div>
+
+<div> </br></div>
+
+                    <div class="left-inner-addon ">
+    <i class="fa fa-address-book-o" aria-hidden="true"></i>
+    <input type="text"
+           class="fa fa-id-card" aria-hidden="true"
+           placeholder="User ID" />
+</div>
+<div> </br></div>
+      <div class="form-group"><button type="submit" class="btn btn-success ">Submit</button> <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p> <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button></div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <div>
+        </br>
+        </div>
+<div class="panel panel-primary">
+				<div class="panel-heading">
+						<h3 class="panel-title" ><i class="fa fa-user" aria-hidden="true"></i> All User</h2>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+
+							</span>
+						</div>
+			    </div>
+
+
+<table width="99%" class="table table-hover" id="dev-table">
+					  <thead>
+						  <tr>
+							  <th width="11%">#
+							  <th width="22%">Firstname</th>
+    <th width="23%">Lastname</th>
+							  <th width="21%">User ID</th>
+							  <th width="23%">Password</th>
+
+
+						  </tr>
+                          <tbody>
+							<tr>
+								<td>1</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+
+                               <td>      </td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+                                <td></td>
+
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+                                <td></td>
+
+							</tr>
+						</tbody>
+					  </thead>
+
+				  </table>
+		  </div>
+
+
+
+
+
+
+
+
+      <!-- END ADD -->
+  </div>
+
+          <h3 class="panel-title">&nbsp;</h3>
+</div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>
