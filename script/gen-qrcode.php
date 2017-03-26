@@ -42,7 +42,7 @@
             ->setImageType(QrCode::IMAGE_TYPE_PNG)
             ;
 
-            $saveAt = "qrcode\/"."$courseid"."-"."$section".".png";
+            $saveAt = "../qrcode/"."$courseid"."-"."$section".".png";
             // save it to a file
             $qrCode->save($saveAt);
           }
