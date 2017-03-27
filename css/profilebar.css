@@ -1,14 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
 
-/***
-User Profile Sidebar by @keenthemes
-A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-Licensed under MIT
-***/
-
 body {
-  background: #EBEBEB;
+
+  background:url(../images/gray-geometric-background-1.jpg);
+  no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 /* Profile container */

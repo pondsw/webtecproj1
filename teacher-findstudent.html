@@ -12,11 +12,8 @@
 <script src="./js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/profilebar.css">
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
-<link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="./css/modal.css">
+<link rel="stylesheet" type="text/css" href="./css/modal.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,25 +25,9 @@
 	color: #FFFFFF;
 }
 </style>
-
-<script language="JavaScript" type="text/javascript">
-function HandleBrowseClick()
-{
-    var fileinput = document.getElementById("browse");
-    fileinput.click();
-}
-function Handlechange()
-{
-var fileinput = document.getElementById("browse");
-var textinput = document.getElementById("filename");
-textinput.value = fileinput.value;
-}
-</script>
-
 </head>
 <body>
 <!-- Image and text -->
-
 
 <!--NAVBAR-->
     <nav class="navbar navbar-light bg-faded">
@@ -153,23 +134,33 @@ textinput.value = fileinput.value;
 				</div>
 <!----END NAV----->
 				<div class="profile-usermenu">
-					<ul class="nav">
+										<ul class="nav">
 
-					  <li ><a href="../w/su/template-admin.html">
-							<i class="glyphicon glyphicon-home"></i>
-							Home </a>
-					  </li>
+					  
+						<li ><a href="teacher-courselistka.html">
+							<i class="fa fa-book" aria-hidden="true"></i>
 
- 						<li >
+							<span>Course-list</span> </a>
+						</li>
+
+						<li>
 							<a href="#" >
-							<i class="fa fa-user-plus" aria-hidden="true"></i>
-							Create User </a>
+							<i class="fa fa-check-square-o" aria-hidden="true"></i>
+							Attendance </a>
 						</li>
-						<li class="active">
-							<a href="#">
-							<i class="glyphicon glyphicon-book"></i>
-							Registration Report </a>
+                        
+        				<li>
+							<a href="#" >
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							Cross check </a>
 						</li>
+                        
+          				<li class="active">
+							<a href="#" >
+							<i class="fa fa-search" aria-hidden="true"></i>
+							Find Student </a>
+						</li>
+
 
 					</ul>
 				</div>
@@ -178,124 +169,120 @@ textinput.value = fileinput.value;
 		</div>
 	<!-- ADD HERE -->
 
-
-
+              
       <div class="col-md-0 col-md-offset-3" >
-                <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModal">
-          <span class="glyphicon glyphicon-plus"></span> Upload File </br>
+<div class="panel panel-primary">
+		<div class="panel-heading">
+						<h3 class="panel-title">Student List</h3> 
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								
+							</span>
+						</div>
+			    </div>
+					
+				  					
+				  <table width="99%" class="table table-hover" id="dev-table">
+					  <thead>
+						  <tr>
+							  <th width="7%">#
+							  <th width="32%">Course name</th>
+    <th width="26%">Course ID</th>
+							  <th width="10%">Grade</th>
+							  <th width="25%">&nbsp;</th>
+           
+                              
+						  </tr>
+                          <tbody>
+							<tr>
+								<td>1</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+                                
+                              <td> 
+     <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#myModal">
+<i class="fa fa-commenting" aria-hidden="true"></i> Comments </br>
         </button>
-         <button type="button" class="btn btn-success btn-sm" >
-          <span class="glyphicon glyphicon-check"></span> Submit </br>
-        </button>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+              <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
-     <div class="modal-header modal-header-success">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3><i class="glyphicon glyphicon-plus"></i> Upload file</h3>
+      <div class="modal-header modal-header-info">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                 <h2><i class="fa fa-commenting" aria-hidden="true"></i> All Comment </h2>
 
       </div>
       <div class="modal-body">
+               <form class="form-horizontal col-sm-12">
+               
+<table width="500" height="200" border="0" align="center">
+  
+ <tr> <td colspan="4">
+<table width="500" class="table table-hover">
+  <thead>
+    <tr>
+      <th width="21">#</th>
+      <th width="166">Professor Name</th>
+      <th width="215">Comment</th>
+      <th width="78">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+ 
+ </td> </tr>
+  
+  
+  <tr>
+    <th colspan="4">Add Comment</th>
+  </tr>
+  <tr>
+    <td colspan="4"><textarea name="textarea" rows="3" class="form-control custom-control" style="resize:none ; width: 500px"  placeholder="-------Comment Here-------" ></textarea></td>
+  </tr>
+<tr> <td>&nbsp;</td></tr>
+ <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2"><div align="right"><a href="" class="btn btn-success">Submit</a></div></td>
+  </tr>
 
-       <table align="center">
-       <tr>
-       <td> </br></td>
-
-       </tr>
-       <tr>
-       <td> Choose File :   </td>
-       <td align="center"> <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange();"/>
-       <input type="text" id="filename" readonly/></td>
-
-       <td>
-<input type="button" class="btn btn-info" value="Browse" id="fakeBrowse" onclick="HandleBrowseClick();"/></td>
-
-
-       </tr>
-              <tr>
-       <td> </br></td>
-
-       </tr>
-       </table>
-
+</table>
+             
+   
+  
+    
+        </form>
       </div>
-      <div class="modal-footer">
 
-        <button type="button" class="btn btn-success"> Submit </button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-footer">
+ <div align="center"><button type="button" class="btn btn-info btn-lg btn-block ">OK</button></div>
 
       </div>
     </div>
   </div>
-
-  </div>
-        <div>
-        </br>
-        </div>
-<div class="panel panel-primary">
-				<div class="panel-heading">
-						<h3 class="panel-title">Registration Report</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-
-							</span>
-						</div>
-			    </div>
-
-				  <table width="99%" class="table table-hover" id="dev-table">
-					  <thead>
-                      <tr>
-                      <th colspan="2"> Course: </th>
-                      <th colspan="2"> Total:
-                      </tr>
-                       <tr>
-							  <th width="12%" >#
-							  <th width="32%">Student ID</th>
-    <th width="33%">Student name</th>
-							  <th width="23%">Section</th>
-
-
-					    </tr>
-                          <tbody>
-							<tr>
-								<td>1</td>
-								<td>xxxxxxxxxxx</td>
-								<td>XXXXXXXX</td>
-								<td>xxxx</td>
-
-
+</div>                         
+                              </td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-
-
-							</tr>
+							
 						</tbody>
 					  </thead>
 
 				  </table>
 		  </div>
-
-
-
-
-
+     
 
 
       <!-- END ADD -->
   </div>
 
-          <h3 class="panel-title">&nbsp;	</h3>
+          <h3 class="panel-title">&nbsp;</h3>
 </div>
       </div>
     </div>
