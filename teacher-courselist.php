@@ -250,11 +250,10 @@
 							<td >&nbsp;</td>
 							</tr>
                             							<tr>
-<<<<<<< HEAD
-	<td align="center"> <a href="teacher-studentlist.html" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
-=======
+
+
 	<td align="center"> <a href="teacher-studentlist.php" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
->>>>>>> d5bc8fe7a04b14bb58f78bccefe166eda8158e8e
+
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
