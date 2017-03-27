@@ -2,14 +2,14 @@
 include ('database-connect.php');
 
 $conn = connect();
-$oldpass = $_GET['oldpassword'];
-$newpass = $_GET['newpassword'];
+$oldpass = $_GET['oldpass'];
+$newpass = $_GET['newpass'];
 $userid = $_GET['userid'];
 
 try{
-	$sql = "SELECT pwd FROM user WHERE userid=".$userid."";
+	$sql = "SELECT pwd FROM user WHERE userid='$userid'";
 	$stmt = $conn->query($sql);
-	
+
 	if ($oldpass == $stmt){
 		$sql = "UPDATE user SET pwd='".$pass."' WHERE id=".$userid."";
 		$stmt = $conn->prepare($sql);
@@ -18,7 +18,7 @@ try{
 			echo "Changed password.";
 			}
 		else{
-			echo "error";
+			echo "User not found.";
 			}
 		}
 	else{

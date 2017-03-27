@@ -191,27 +191,49 @@
 
 						  </tr>
                           <tbody>
-							<tr>
-								<td><div align="center">1</div></td>
-								<td><div align="center"></div></td>
-								<td><div align="center"></div></td>
-								<td><div align="center">
-								  <select name="grade" value="" style="width: 100px">
-								    <option value=""> A</option>
-								    <option value=""> B</option>
-								    <option value=""> C</option>
-								    <option value=""> D</option>
-							      </select>
-							  </div></td>
 
+                                        <?php
+                                        include ('script/database-connect.php');
+
+                                        $conn = connect();
+                                        $section = $_GET['section'];
+                                        $course = $_GET['course'];
+                                        $num = 1;
+
+                                        try {
+                                             $stmt = $conn->prepare("SELECT DISTINCT tk.studentid, u.fname, u.lname FROM (section AS s INNER JOIN takescourse AS tk ON s.sectionid=tk.sectionid) INNER JOIN user AS u ON tk.studentid=u.userid WHERE sectionno=$section AND courseid=$course");
+                                             $stmt->execute();
+
+                                             foreach($stmt->fetchAll() as $k) {
+                                                  echo "<tr>";
+                                                  echo "<td><div align='center'>".$num."</div></td>";
+          								echo "<td><div align='center'>".$k['studentid']."</div></td>";
+          								echo "<td><div align='center'>".$k['fname']." ".$k['lname']."</div></td>";
+          								echo "<td><div align='center'>";
+          								echo "<select name='grade' style='width: 100px'>";
+          								echo "<option value='A'>A</option>";
+          								echo "<option value='B'>B</option>";
+          								echo "<option value='C'>C</option>";
+          								echo "<option value='D'>D</option>";
+          							     echo "</select></div></td>";
+                                                  echo "<td><div align='center'>";
+                                                  echo "<button type='button' class='btn btn-warning btn-sm'  data-toggle='modal' data-target='#myModal1'>";
+                                                  echo "<span class='fa fa-list-alt' aria-hidden='true'></span> Student profile & Comments </br>";
+                                                  echo "</button>";
+                                                  echo "</div></td>";
+                                                  echo "<tr>";
+
+                                                  $num++;
+                                             }
+                                        }
+                                        catch(PDOException $e) {
+                                             echo "Error: " . $e->getMessage();
+                                        }
+                                        $conn = null;
+                                        ?>
                               <td>
-              <div align="center">
-                <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#myModal">
 
-                  <span class="fa fa-list-alt" aria-hidden="true"></span> Student profile & Comments </br>
-                  </button>
-              </div>
-              <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header modal-header-info">
@@ -231,9 +253,9 @@
                               </tr>
                             <tr> <td>&nbsp;</td></tr>
                             <tr>
-                              <th width="148"><div align="center">Student ID :</div></th>
+                              <th width="148"><div align="center">Student ID : 1</div></th>
                               <td width="205">&nbsp;</td>
-                              <th width="196"><div align="center">Student name :</div></th>
+                              <th width="196"><div align="center">Student name : 1</div></th>
                               <td width="241">&nbsp;</td>
                               </tr>
                             <tr>
