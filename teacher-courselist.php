@@ -254,17 +254,8 @@
                                    <tr>
 							      <td >&nbsp;</td>
 							</tr>
-<<<<<<< HEAD
                 				<tr>
 	                                    <td align="center" ><input type="submit" class="btn btn-warning btn-lg btn-block"></td>
-=======
-                            							<tr>
-<<<<<<< HEAD
-	<td align="center"> <a href="teacher-studentlist.html" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
-=======
-	<td align="center"> <a href="teacher-studentlist.php" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
->>>>>>> d5bc8fe7a04b14bb58f78bccefe166eda8158e8e
->>>>>>> bf50794e58a301f9626aadb8462aa58b0e9550e8
 							</tr>
                                    <tr>
 							<td >&nbsp;</td>
