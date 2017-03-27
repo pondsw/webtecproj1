@@ -2,7 +2,9 @@
 include ('script/database-connect.php');
 session_start();
 $conn = connect();
-$userid = $_SESSION['userid'];
+if(isset($_SESSION['userid'])){
+  $userid = $_SESSION['userid'];
+}
 
 function showSubjectList($stmtexec){
   $no = "1";
