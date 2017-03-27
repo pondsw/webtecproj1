@@ -59,3 +59,7 @@ input[type=date], select {
 		.panel-body{
 			display: none;
 		}
+		.panel-title{
+			
+			font-size: 30px;
+			}
