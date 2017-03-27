@@ -9,7 +9,11 @@
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./css/profilebar.css">
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
+
+<link rel="stylesheet" type="text/css" href="./css/modal.css">
+
 <script type="text/javascript" src="js/permission.js"></script>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -127,9 +131,28 @@ $(document).ready(function(){
 						<tr>
 							<th width="12%">
 						    <th width="19%" style="font-size:18px">QRcode</th>
-    						<th width="43%" align="center"><input class="qrcode" align="center" type="text" value=""></th>
-							<!-- <th width="26%"><a href="" type="button" class="btn btn-success" onclick="checkin()">Submit</a></th> -->
-              <th width="26%"><input id= "submitbtn" class="btn btn-success" type="button" value="Submit"></th>
+
+    						<th width="43%" align="center"><input align="center" type="text" value=""></th>
+							<th width="26%">  <input id= "submitbtn" class="btn btn-success" type="button" value="Submit" data-toggle="modal" data-target="#myModal"></button>
+              
+                               <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                  <div class="modal-content">
+                                    <div class="modal-header modal-header-info">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h1 class="modal-title">Attendance</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                    	<div align="center"> <img src="images/check.png" width="150px" height="150px" class="img-responsive" alt=""> </div>
+                                      <p style="color:#000 ; font-size:24px ; text-align:center" >Scan completed!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>  </th>
+
 					    </tr>
                         <tr><td colspan="4">&nbsp;</td> </tr>
                         <tr><td colspan="4">&nbsp;</td> </tr>
