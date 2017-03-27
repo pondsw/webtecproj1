@@ -28,7 +28,22 @@
 function loadb(){
 	$('#detailpro').show();
 	}
-	</script>
+
+</script>
+<script>
+$(document).ready(function(){
+
+    $("#submitbtn").click(function(){
+      var qrcode = $(".qrcode").val();
+      $.get( "student_checkin.php", { 'code': qrcode } ).done(function( data ) {
+            alert(data);
+        });
+    });
+});
+</script>
+<script>
+</script>
+
 </head>
 <body>
 <!-- Image and text -->
@@ -119,10 +134,13 @@ function loadb(){
 						<tr>
 							<th width="12%">
 						    <th width="19%" style="font-size:18px">QRcode</th>
-    						<th width="43%" align="center"><input align="center" type="text" value=""></th>
-							<th width="26%">  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Submit</button>
-              					
-                               <div class="modal fade" id="myModal" role="dialog" >
+
+
+    						<th width="43%" align="center"><input align="center" type="text" class="qrcode" value=""></th>
+							<th width="26%"> <input id= "submitbtn" class="btn btn-success" type="button" value="Submit"></button>
+
+                               <div class="modal fade" id="myModal" role="dialog">
+
                                 <div class="modal-dialog modal-sm">
                                   <div class="modal-content">
                                     <div class="modal-header modal-header-info">

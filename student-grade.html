@@ -19,7 +19,7 @@
   <script>
   $.ajax({
   type: "POST",
-  url: "testing.php",
+  url: "student_report.php",
   success: function(text){
   console.log(text);
   $('#tabletbody').append(text);
@@ -120,8 +120,7 @@
 				</tbody>
                 <thead>
                   <tr class='test'>
-                    <th width="9%"><div align="center">#
-                    </div>
+                    <th width="9%"><div align="center">#</div></th>
                     <th width="32%"><div align="center">Course name</div></th>
                     <th width="33%"><div align="center">Course Id</div></th>
                     <th width="26%"><div align="center">Grade</div></th>

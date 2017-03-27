@@ -4,45 +4,52 @@ session_start();
 
 $conn = connect();
 $qrcode = $_GET['code'];
-$studentid = 0;
-$_SESSION['$qid']['number'];
 $status = true;
+
+if(isset($_SESSION['userid'])){
+	$studentid = $_SESSION['userid'];
+}
 
 try{
 	$sql = "SELECT secdetailid FROM sectiondetail WHERE qrcode='$qrcode'";
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 	if ($stmt->rowCount()>0){
-    $qid = $stmt;
+		foreach ($stmt->fetchAll() as $key => $value){
+			$output = $value;
+		}
 	}
 	else{
-		echo "QRcode not found.";
+		echo 'Qrcode not found.';
 		exit;
 		}
+	$qid = $output["secdetailid"];
 }
 catch(PDOException $e) {
 	echo "Error: " . $e->getMessage();
 	}
 
 //check duplicate
-foreach ($_SESSION['$qid'] as $id){
-	if($studentid == $id){
+try{
+	$sql = "SELECT studentid FROM sectioncheck WHERE studentid='$studentid'";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	if ($stmt->rowCount()>0){
 		$status = false;
-	}
-	else{
-		echo 'Already checked in.';
+		echo "Already checked in.";
 	}
 }
-
+catch(PDOException $e) {
+	echo "Error: " . $e->getMessage();
+	}
 if($status == true){
-	$_SESSION['$qid'][$_SESSION['$qid']['number']] = $studentid;
-	$_SESSION['$qid']['number']++;
 	try {
-		$sql = "INSERT INTO sectioncheck (secdetailid, studentid, datetiming, status)
-		VALUES ('$qid', '$studentid','".date("Y-m-d H:i:s", time())."', 'checked')";
+		$sql = "INSERT INTO sectioncheck (secdetailid, studentid, datetime, status) VALUES ('$qid', '$studentid',CURRENT_TIMESTAMP, 'checked')";
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
+		echo "Check in Successful.";
 	}
 
 	catch(PDOException $e) {
