@@ -7,19 +7,18 @@ $no = 1;
 
 function showSubjectList($stmtexec){
      foreach($stmtexec->fetchAll() as $k) {
-          echo '<tr>';
-          echo '<td><div class="first" align="center">'.$no.'</div></td>';
-		  $no++;
-		  echo '<td><div align="center">'.$k['title'].'</div></td>';
+       echo '<tr>';
+       echo '<td><div class="first" align="center">'.$no.'</div></td>';
+       $no++;echo '<td><div align="center">'.$k['title'].'</div></td>';
 		  echo '<td><div align="center">'.$k['courseid'].'</div></td>';
 		  echo '<td><div align="center">'.$k['grade'].'</div></td>';
-          echo '</tr>';
+        echo '</tr>';
 		  }
 }
 
 try{
-$sql = "SELECT * FROM learningsystem.user,takescourse,section,course WHERE user.userid = ".$userid." AND takescourse.studentid = user.userid AND section.sectionid = takescourse.sectionid AND section.courseid = course.courseid";
-$stmt = $conn->prepare($sql); 
+$sql = "SELECT * FROM learningsystem.user,learningsystem.takescourse,learningsystem.section,learningsystem.course where user.userid = '$studentid' and takescourse.studentid = user.userid and section.sectionid = takescourse.sectionid and section.courseid = course.courseid";
+$stmt = $conn->prepare($sql);
 $stmt->execute();
 
 if ($stmt->rowCount()>0){
@@ -27,7 +26,7 @@ if ($stmt->rowCount()>0){
 	}
 	else{
 		echo "Course not found.";
-		}
+}
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
