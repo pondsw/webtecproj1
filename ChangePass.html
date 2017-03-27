@@ -5,6 +5,42 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+  $(document).ready(function(){
+      $("#submitbtn").click(function(){
+
+        var pwd = $('#newpwd').val();
+        var repwd = $('#renewpwd').val();
+        // alert(pwd +"  "+ repwd);
+        if( pwd == repwd){
+          $.post( "changepassword.php", { 'pwd' :pwd },
+            function(response,status){
+              // alert(response);
+              alert("Setting password is success.");
+              var obj = JSON.parse(response);
+              // $('#result').html(response);
+              if(obj.hasOwnProperty("err")){
+                // alert("err");
+                $('#showerr').css({"display": "block", "text-align": "center"});
+                $('#showerr').html("Can not connect to server, please login again.");
+
+              }else if(obj["type"] == "S"){
+                location.replace("student-homej.html");
+              }else if(obj["type"] == "T" || obj["type"] == "T" ){
+                location.replace("teacher-home.html");
+              }else if(obj["type"] == "A"){
+                location.replace("admin-home.html");
+              }
+            }
+          );
+        }else{
+          alert("New Pass and re-new pass are different.");
+        }
+
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -17,25 +53,25 @@
 					</div>
 					<table width="300" border="0" align="center">
   <tr>
-    <td width="209" height="30" "> New password</td>
+    <td width="209" height="30"> New password</td>
 
   </tr>
   <tr>
-    <td ><input type="text" name="" id="" width="300" ></td>
+    <td ><input type="text" name="" id="newpwd" width="300"  ></td>
   </tr>
   <tr>
     <td  height="30" > Renew Password</td>
 
   </tr>
   <tr>
-<td > <input type="text" name="" id="" width="300" ></td>
+<td > <input type="text" name="" id="renewpwd" width="300" ></td>
   </tr>
     <tr>
     <td  height="10" colspan="2">&nbsp; </td>
 
   </tr>
   <tr>
-    <td  ><button type="button" class="btn btn-success btn-sm btn-block" style="margin-top:10">submit</button></td>
+    <td  ><button id="submitbtn" type="button" class="btn btn-success btn-sm btn-block" style="margin-top:10">submit</button></td>
   </tr>
   <td  height="10" colspan="2">&nbsp; </td>
 </table>
