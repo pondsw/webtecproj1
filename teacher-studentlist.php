@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-
+<script type="text/javascript" src="js/permission.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
@@ -38,7 +38,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
 
-      <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+      <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
   </div>
@@ -192,9 +192,27 @@
 						  </tr>
                           <tbody>
 							<tr>
-								<td><div align="center">1</div></td>
-								<td><div align="center"></div></td>
-								<td><div align="center"></div></td>
+                                        <?php
+                                        include ('script/database-connect.php');
+
+                                        $conn = connect();
+
+                                        try {
+                                             $stmt = $conn->prepare("SELECT DISTINCT courseid FROM teachcourse AS tc INNER JOIN section AS s ON tc.sectionid=s.sectionid WHERE tc.teacherid='5710000000'");
+                                             $stmt->execute();
+
+                                             foreach($stmt->fetchAll() as $k) {
+                                                  echo "<option value='" . $k['courseid'] ."'>" . $k['courseid'] ."</option>";
+                                             }
+                                        }
+                                        catch(PDOException $e) {
+                                             echo "Error: " . $e->getMessage();
+                                        }
+                                        $conn = null; 
+                                        ?>
+								<!-- <td><div align="center">1</div></td>
+								<td><div align="center">test</div></td>
+								<td><div align="center">test</div></td>
 								<td><div align="center">
 								  <select name="grade" value="" style="width: 100px">
 								    <option value=""> A</option>
@@ -202,7 +220,7 @@
 								    <option value=""> C</option>
 								    <option value=""> D</option>
 							      </select>
-							  </div></td>
+							    </div></td> -->
 
                               <td>
               <div align="center">

@@ -7,12 +7,13 @@
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="./css/bootstrap.min.css" rel="stylesheet">
-<link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/profilebar.css">
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
+
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
+
+<script type="text/javascript" src="js/permission.js"></script>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,7 +29,18 @@
 function loadb(){
 	$('#detailpro').show();
 	}
-	</script>
+</script>
+<script>
+$(document).ready(function(){
+
+    $("#submitbtn").click(function(){
+      var qrcode = $(".qrcode").val();
+      $.get( "student_checkin.php", { 'code': qrcode } ).done(function( data ) {
+            alert(data);
+        });
+    });
+});
+</script>
 </head>
 <body>
 <!-- Image and text -->
@@ -110,17 +122,18 @@ function loadb(){
 					<div class="panel-body">
 						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
 					</div>
-					
+
 				<table width="99%"  id="dev-table">
 					  <thead>
-                    
+
                       	<tr><td colspan="4">&nbsp;</td> </tr>
-						<tr><td colspan="4">&nbsp;</td> </tr>	
+						<tr><td colspan="4">&nbsp;</td> </tr>
 						<tr>
 							<th width="12%">
 						    <th width="19%" style="font-size:18px">QRcode</th>
+
     						<th width="43%" align="center"><input align="center" type="text" value=""></th>
-							<th width="26%">  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Submit</button>
+							<th width="26%">  <input id= "submitbtn" class="btn btn-success" type="button" value="Submit" data-toggle="modal" data-target="#myModal"></button>
               
                                <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog modal-sm">
@@ -139,6 +152,7 @@ function loadb(){
                                   </div>
                                 </div>
                               </div>  </th>
+
 					    </tr>
                         <tr><td colspan="4">&nbsp;</td> </tr>
                         <tr><td colspan="4">&nbsp;</td> </tr>
