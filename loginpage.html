@@ -4,33 +4,74 @@
 <title>login</title>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+
+<!-- If CDN fails to load, server up the local version -->
+<script>window.jQuery || document.write('<script src="./js/jquery-3.1.1.js"><\/script>');</script>
 <script>
+$(document).ready(function(){
+    $("#loginfrom").submit(function(event){
+      event.preventDefault();
+
+      var user =$('#user').val()
+		  var pwd = $('#pwd').val()
+      $.post( "login.php", { 'user' :user , 'pwd': pwd },
+        function(response,status){
+          var obj = JSON.parse(response);
+          // $('#result').html(response);
+          if(obj.hasOwnProperty("err")){
+            alert("err");
+          }else if(obj["total"] == 0){
+            alert("worng pass");
+            $('#showerr').html("The username or password you have entered is invalid.");
+          }else if(obj["type"] == "S"){
+            location.replace("student-homej.html");
+          }else if(obj["type"] == "T" || obj["type"] == "T" ){
+            location.replace("teacher-courselistka.html");
+          }else if(obj["type"] == "A"){
+            location.replace("admin-createUser.html");
+          }
+      });
+    });
+});
+</script>
+<!-- <script>
 
 function loginsuccess(){
 
 	}
-</script>
+</script> -->
 </head>
 
 <body>
+  <div id="result">
+
+  </div>
 <div align="center">
 <img src="./images/logo.png" class="imgcontainer"/></div>
 <div class="login">
   <h1>Login</h1>
 
-  <form class="form" method="post" action="#">
 
+  <form id="loginfrom" class="form" method="post" action="">
+
+    <p class="field">
+      <!-- <div id="showerr">ererer</div> -->
+
+    </p>
     <p class="field">
       <input type="text" name="user" id="user" placeholder="Username" required/>
       <i class="fa fa-user"></i>
     </p>
 
     <p class="field">
-      <input type="password" name="password" placeholder="Password" required/>
+      <input type="password" id="pwd" name="password" placeholder="Password" required/>
       <i class="fa fa-key"></i>
     </p>
-
-    <p class="submit"><input type="submit" name="sent" value="Login" onclick="loginsuccess()"></p>
+<div style="display: none;" >teste</div>
+    <p class="submit"><input type="submit" name="sent" value="Login" ></p>
     <span class="psw">Forgot <a href="#">password?</a></span>
 
 
