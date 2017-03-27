@@ -183,27 +183,29 @@
 				<div class="profile-usermenu">
 										<ul class="nav">
 
-					  
-						<li ><a href="teacher-courselistka.html">
+					  <li ><a href="teacher-home.html">
+							<i class="glyphicon glyphicon-home"></i>Home </a>
+					  </li>
+						<li ><a href="teacher-courselist.php">
 							<i class="fa fa-book" aria-hidden="true"></i>
 
 							<span>Course-list</span> </a>
 						</li>
 
 						<li>
-							<a href="#" >
+							<a href="teacher-Atten.html" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
                         
         				<li class="active">
-							<a href="#" >
+							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
                         
           				<li>
-							<a href="#" >
+							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
 							Find Student </a>
 						</li>
@@ -219,8 +221,8 @@
               
       <div class="col-md-0 col-md-offset-3" >
 <div class="panel panel-primary">
-		<div class="panel-heading">
-						<h3 class="panel-title">Course Check</h3> 
+	  <div class="panel-heading">
+		<h3 class="panel-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Course Check</h3> 
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 								
@@ -229,22 +231,36 @@
 			    </div>
 					
 				  					
-				  <table width="99%" class="table table-hover" id="dev-table">
+				  <table width="99%" class="table table-hover " id="dev-table">
 					  <thead>
 						  <tr>
-							  <th width="23%"><div align="center">Course ID
-						      </div>
-						    <th width="34%"><div align="center">Section</div></th>
-    <th width="22%">Cross check</th>
+							  <th width="25%"><div>
+							    <div align="center">Course name</div>
+							  </div></th>
+							  <th width="22%"><div >
+							    <div align="center">Course ID</div>
+							  </div></th>
+						    <th width="16%"><div >
+						      <div align="center">Section</div>
+						    </div></th>
+     						<th width="13%"><div>
+     						  <div align="center">Student checked</div>
+     						</div></th>
+                            <th width="13%"><div>
+                              <div align="center">Cross check</div>
+                            </div></th>
 							  
-							  <th width="21%">&nbsp;</th>
+							  <th width="11%"><div ></div></th>
            
                               
 						  </tr>
                           <tbody>
 							<tr>
+                            	<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
+                                <td><div align="center">
+</div></td>
                                 <td><div align="center">
                                   <input type="text" name="" id="" width="30">
                                 </div></td>
