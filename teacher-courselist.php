@@ -27,14 +27,20 @@
 </style>
 
 <link rel="stylesheet" media="screen" href="css/permission.css">
-<!-- <script type="text/javascript">
-     function fetch_select(val){
-          $.ajax({
-               type: 'post',
-               url:
-          })
-     }
-</script> -->
+<script type="text/javascript">
+function fetch_select(val){
+     $.ajax({
+          type: 'post',
+          url: 'fetch_section.php?teacherid="5710000000"',
+          data: {
+               get_option:val
+          },
+          success : function (response){
+               document.getElementById("select_section").innerHTML=response;
+          }
+     })
+}
+</script>
 </head>
 <body>
 <!-- Image and text -->
