@@ -19,12 +19,16 @@ $(document).ready(function(){
 		  var pwd = $('#pwd').val()
       $.post( "login.php", { 'user' :user , 'pwd': pwd },
         function(response,status){
+          alert(response);
           var obj = JSON.parse(response);
           // $('#result').html(response);
           if(obj.hasOwnProperty("err")){
-            alert("err");
+            // alert("err");
+            $('#showerr').css({"display": "block", "text-align": "center"});
+            $('#showerr').html("Can not connect to server, please login again.");
           }else if(obj["total"] == 0){
-            alert("worng pass");
+            // alert("worng pass");
+            $('#showerr').css({"display": "block", "text-align": "center"});
             $('#showerr').html("The username or password you have entered is invalid.");
           }else if(obj["type"] == "S"){
             location.replace("student-homej.html");
@@ -37,12 +41,7 @@ $(document).ready(function(){
     });
 });
 </script>
-<!-- <script>
 
-function loginsuccess(){
-
-	}
-</script> -->
 </head>
 
 <body>
@@ -71,10 +70,14 @@ function loginsuccess(){
       <i class="fa fa-key"></i>
 
   </p>
-      <p><div style="color:#F00 ">
-      <div id="showerr" style="text-align: center ; "> hello</div>
-       </div></p>
-    <p class="submit"><input type="submit" name="sent" value="Login" ></p>
+
+    <p><div style="color:#F00 ">
+    <div id="showerr" style="text-align: center; display: none;"> hello</div>
+     </div></p>
+    <p class="submit" style="margin-top:0px ">
+      <input type="submit" name="sent" value="Login" onClick="loginsuccess()">
+    </p>
+
     <span class="psw">Forgot <a href="#">password?</a></span>
 
 

@@ -32,10 +32,11 @@ function fetch_data($user,$pwd){
       // echo $value["propertyno"];
       $output = $value;
     }
+    // $output = $value[0];
     if($output["total"] == 1){
-      // session_start();
-      // $_SESSION["userid"] = $output["userid"];
-      // $_SESSION["type"] = $output["type"];
+      session_start();
+      $_SESSION["userid"] = $output["userid"];
+      $_SESSION["type"] = $output["type"];
       // session_unset();
     }
     // $output = $stmt->fetchAll();
