@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title></title>
 
-<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href=".css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -12,21 +12,11 @@
 <script src="./js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/profilebar.css">
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
-<script type="text/javascript" src="js/permission.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="./css/modal.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
-  $.ajax({
-  type: "POST",
-  url: "testing.php",
-  success: function(text){
-  console.log(text);
-  $('#tabletbody').append(text);
-  }
-  });
-  console.log('test');
-  </script>
+  <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+  <script type="text/javascript" src="js/permission.js"></script>
 <style type="text/css">
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
@@ -38,6 +28,8 @@
 </head>
 <body>
 <!-- Image and text -->
+
+
     <nav class="navbar navbar-light bg-faded">
     <div class="container-fluid">
       <div class="navbar-header" > <a class="navbar-brand"  href="#"> <img src="./images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" > </a>
@@ -68,29 +60,29 @@
 						Name
 					</div>
 					<div class="profile-usertitle-job">
-						Student
-				   </div>
+						Admin
+					</div>
 				</div>
 				</div>
 
 				<div class="profile-usermenu">
 					<ul class="nav">
 
-					  <li  ><a href="student-homej.html">
-							<i class="glyphicon glyphicon-home"></i>
-							Home </a>
-					  </li>
-						<li><a href="student-atten.html">
-							<i class="glyphicon glyphicon-check"></i>
-							<span>Attendance</span> </a>
+					 	<li ><a href="admin-home.html">
+                            <i class="glyphicon glyphicon-home"></i>Home </a>
+                        </li>
+
+						<li class="active" >
+							<a href="admin-createUser.html" >
+							<i class="fa fa-user-plus" aria-hidden="true"></i>
+							Create User </a>
 						</li>
 
-						<li class="active">
-							<a href="student-grade.html" >
-							<i class="glyphicon glyphicon-pencil"></i>
-							Grade report </a>
+						<li >
+							<a href="admin-regisreport.html">
+							<i class="glyphicon glyphicon-book"></i>
+							Registration Report </a>
 						</li>
-
 
 					</ul>
 				</div>
@@ -100,47 +92,75 @@
 	<!-- ADD HERE -->
 
 
-      <div class="col-md-0 col-md-offset-3" >
 
-        <div>
-        </br>
-        </div>
-<div class="panel panel-primary">
-                <div class="panel-heading">
-						<h3 class="panel-title"> <i class="glyphicon glyphicon-pencil"></i> Grade Report </h3>
-				  <div class="pull-right">
-					  <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 
-					  </span>
-				  </div>
-			    </div>
-				<table width="99%" class="table table-hover" id="dev-table">
-				<tbody>
-				  <tr></tr>
-				</tbody>
-                <thead>
-                  <tr class='test'>
-                    <th width="9%"><div align="center">#
-                    </div>
-                    <th width="32%"><div align="center">Course name</div></th>
-                    <th width="33%"><div align="center">Course Id</div></th>
-                    <th width="26%"><div align="center">Grade</div></th>
-                  </tr>
-                <tbody id="tabletbody">
-                </tbody>
-				</table>
+			<div class="col-md-6 col-md-offset-1">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title">
+                     	<i class="fa fa-user" aria-hidden="true"></i> Profile</h1>
+
+					</div>
+					<div class="panel-body">
+
+					</div>
+                    <table class="table-tb" width="528" border="0">
+                      <tr><th colspan="3">&nbsp; </th></tr>
+                      <tr >
+                        <td align="center" width="217" rowspan="4">
+                        <img src="./images/empty.png" width="190px" height="190px" class="img-responsive" alt=""></td>
+                        <th width="110" height="50">Firstname :</th>
+                        <td width="187"><div>hello</div></td>
+                      </tr>
+                      <tr>
+                        <th height="50">Lastname :</th>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <th height="50"> Admin ID : </th>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <th height="50"> Type : </th>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr><th colspan="3">&nbsp; </th></tr>
+
+                    </table>
+
+
+
+
+
+
+
+      </div>
+
+
+      </div>
+    </div>
+  </div>
 </div>
+
+
+                 </td></tr>
+
+                 <tr><td >&nbsp;</td></tr>
+                </table>
+				</div>
+			</div>
+
 
       <!-- END ADD -->
   </div>
 
-          <h3 class="panel-title"></h3>
+          <h3 class="panel-title">&nbsp;</h3>
 </div>
-</div>
+      </div>
     </div>
 </div>
 </div>
-<script>
-</script>
+
+
 </body>
 </html>

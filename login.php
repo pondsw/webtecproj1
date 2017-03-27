@@ -5,7 +5,7 @@ if(isset($_POST['user']))
 
   $u = $_POST['user'];
   $p = $_POST['pwd'];
-
+  // echo "test";
   echo fetch_data($u,$p);
 
 }
@@ -37,7 +37,11 @@ function fetch_data($user,$pwd){
       session_start();
       $_SESSION["userid"] = $output["userid"];
       $_SESSION["type"] = $output["type"];
+      $_SESSION["fname"] = $output["fname"];
+      $_SESSION["lname"] = $output["lname"];
       // session_unset();
+      $output["id"] = session_id();
+      session_write_close();
     }
     // $output = $stmt->fetchAll();
 

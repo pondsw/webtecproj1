@@ -15,7 +15,6 @@
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 <script type="text/javascript" src="js/permission.js"></script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
@@ -30,6 +29,7 @@
 <body>
 <!-- Image and text -->
 
+
 <!--NAVBAR-->
     <nav class="navbar navbar-light bg-faded">
     <div class="container-fluid">
@@ -38,8 +38,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
 
-        <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-
+      <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
   </div>
@@ -136,36 +135,29 @@
 				</div>
 <!----END NAV----->
 				<div class="profile-usermenu">
-				  <ul class="nav">
-
+										<ul class="nav">
 					  <li ><a href="teacher-home.html">
 							<i class="glyphicon glyphicon-home"></i>Home </a>
 					  </li>
-						<li ><a href="teacher-courselist.php">
+						<li class="active"><a href="teacher-courselist.php">
 							<i class="fa fa-book" aria-hidden="true"></i>
-
 							<span>Course-list</span> </a>
 						</li>
-
-						<li class="active">
+						<li>
 							<a href="teacher-Atten.html" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
-
-        				<li >
+        				<li>
 							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
-
-          				<li >
+          				<li>
 							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
 							Find Student </a>
 						</li>
-
-
 					</ul>
 				</div>
 				<!-- END MENU -->
@@ -174,142 +166,132 @@
 	<!-- ADD HERE -->
 
 
-			<div class="col-md-6 col-md-offset-1">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h1 class="panel-title">
-                      <i class="fa fa-check-square-o" aria-hidden="true"></i> Attendance</h1>
+      <div class="col-md-0 col-md-offset-3" >
+<div class="panel panel-primary">
+		<div class="panel-heading">
+						<h3 class="panel-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student List</h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 
-					</div>
-					<div class="panel-body">
-
-					</div>
-
-				  <table class="table-tb" width="500" border="0" align="center">
-
-  <tr >
-    <th height="50" ><div align="center">Select Course</div></th>
-  </tr>
+							</span>
+						</div>
+			    </div>
 
 
-  <tr>
-    <td><div align="center">
-      <select name="course" value="" style="width: 345px">
-        <option value=""> </option>
+				  <table width="99%" class="table table-hover" id="dev-table">
+					  <thead>
+						  <tr>
+							  <th width="5%"><div align="center">#
+							  </div>
+						    <th width="18%"><div align="center">Student ID</div></th>
+    <th width="18%"><div align="center">Student name</div></th>
+							  <th width="15%"><div align="center">Grade</div></th>
+							  <th width="15%"><div align="center"></div></th>
 
-      </select>
-    </div></td>
-  </tr>
 
-  <tr>
-    <th height="30"><div align="center">Select Section</div></th>
-  </tr>
-  <tr>
-    <td><div align="center">
-      <select name="section" value="" style="width: 345px">
-        <option value=""> </option>
+						  </tr>
+                          <tbody>
+							<tr>
+								<td><div align="center">1</div></td>
+								<td><div align="center"></div></td>
+								<td><div align="center"></div></td>
+								<td><div align="center">
+								  <select name="grade" value="" style="width: 100px">
+								    <option value=""> A</option>
+								    <option value=""> B</option>
+								    <option value=""> C</option>
+								    <option value=""> D</option>
+							      </select>
+							  </div></td>
 
-      </select>
-    </div></td>
-  </tr>
+                              <td>
+              <div align="center">
+                <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#myModal">
 
-  <tr>
-    <th height="30"><div align="center">Date</div></th>
-  </tr>
-  <tr>
-    <td><div align="center"><input type="date" name="date" width="300"></div></td>
-  </tr>
+                  <span class="fa fa-list-alt" aria-hidden="true"></span> Student profile & Comments </br>
+                  </button>
+              </div>
+              <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header modal-header-info">
+                      <div align="center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      </div>
+                      <h2 align="center"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student profile & Comments </h2>
 
-  <tr>
-    <th height="30"><div align="center">QRcode time</div></th>
-  </tr>
-  <tr>
-    <td><div align="center">
-      <select name="stoptime" value="" style="width: 345px">
-        <option value="">15 minutes</option>
-        <option value="">30 minutes </option>
+                      </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal col-sm-12">
 
-      </select>
-     ;</div></td>
-  </tr>
+                        <div align="center">
+                          <table width="500" height="300" border="0" align="center">
+                            <tr>
+                              <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
+                              </tr>
+                            <tr> <td>&nbsp;</td></tr>
+                            <tr>
+                              <th width="148"><div align="center">Student ID :</div></th>
+                              <td width="205">&nbsp;</td>
+                              <th width="196"><div align="center">Student name :</div></th>
+                              <td width="241">&nbsp;</td>
+                              </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              </tr>
+                            <tr>
+                              <th colspan="4">Comment</th>
+                              </tr>
+                            <tr>
+                              <td colspan="4"><textarea name="textarea" rows="3" class="form-control custom-control" style="resize:none ; width: 500px"  placeholder="-------Comment Here-------" ></textarea></td>
+                              </tr>
+                            <tr> <td>&nbsp;</td></tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td colspan="2"><div align="right"><a href="" class="btn btn-success">Submit</a></div></td>
+                              </tr>
 
-  <tr><td>&nbsp;</td></tr>
- <tr>
- <td ><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal"  ><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
- <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header modal-header-danger">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                 <h1><i class="fa fa-qrcode" aria-hidden="true"></i> QRcode </h1>
-
-      </div>
-      <div class="modal-body">
-               <form class="form-horizontal col-sm-12">
-
-<table width="500" border="0" align="center">
-  <tr>
-    <td colspan="4"><div align="center"><img src="images/qrcode-ex.jpg" alt="" width="250px" height="250px" class="img-responsive" align="middle"></div></td>
-  </tr>
-    <tr>
-  	<td width="110">&nbsp;</td>
-    <th width="130" style="font-size:18px">Code :</th>
-    <th style="font-size:36px; color:#F00" >asdasd </th>
-    <td width="120">&nbsp;</td>
-  </tr>
-  <tr>
-  	<td width="110">&nbsp;</td>
-    <th width="130" style="font-size:18px">QRcode time :</th>
-    <td width="122" style="font-size:26px"> xx minutes</td>
-    <td width="120">&nbsp;</td>
-  </tr>
-    <tr><td >&nbsp;</td></tr>
-  <tr>
-    <th><div align="right">Course ID :</div></th>
-    <td><div align="left"></div></td>
-    <th><div align="left">Section :</div></th>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <th><div align="right">Date :</div></th>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+                          </table>
 
 
 
 
-        </form>
-      </div>
+                        </div>
+                        </form>
+                      </div>
 
-      <div class="modal-footer">
- <div align="center"><button type="button" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-hidden="true">Close</button></div>
+                    <div class="modal-footer">
+                      <div align="center">
+                        <button type="button" class="btn btn-info btn-lg btn-block ">Show more detail</button>
 
-      </div>
-    </div>
-  </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
 </div>
 
+                              </td>
+							</tr>
 
- </td></tr>
+						</tbody>
+					  </thead>
 
- <tr><td >&nbsp;</td></tr>
-</table>
-				</div>
-			</div>
+				  </table>
+		  </div>
 
-
+              <button type="button" class="btn btn-success ; pull-right " >
+          <span class="glyphicon glyphicon-check"></span> Submit </br>
+        </button>
 
 
 
       <!-- END ADD -->
-
+  </div>
 
           <h3 class="panel-title">&nbsp;</h3>
 </div>
-</div>
+      </div>
     </div>
 </div>
 </div>
