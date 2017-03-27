@@ -274,11 +274,9 @@
   </div>
 
           <h3 class="panel-title">&nbsp;</h3>
-</div>
-      </div>
-    </div>
-</div>
-</div>
+
+  
+
 </form>
 
 </body>
