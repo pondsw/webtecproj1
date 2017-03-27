@@ -37,7 +37,7 @@
         <p></br>Learning Management System</p>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      
+
       <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
@@ -72,7 +72,7 @@
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -107,12 +107,12 @@
     <td width="241">&nbsp;</td>
   </tr>
  <tr> <td>&nbsp;</td></tr>
- 
+
 </table>
-             
-   
-  
-    
+
+
+
+
         </form>
       </div>
 
@@ -124,12 +124,12 @@
       </div>
     </div>
   </div>
-</div>                   
-        
-        
-        
-        
-        
+</div>
+
+
+
+
+
 				   </div>
 				</div>
 				</div>
@@ -137,7 +137,7 @@
 				<div class="profile-usermenu">
 										<ul class="nav">
 
-					  
+
 						<li class="active"><a href="teacher-courselistka.html">
 							<i class="fa fa-book" aria-hidden="true"></i>
 
@@ -149,13 +149,13 @@
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
-                        
+
         				<li>
 							<a href="#" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
-                        
+
           				<li>
 							<a href="#" >
 							<i class="fa fa-search" aria-hidden="true"></i>
@@ -170,19 +170,19 @@
 		</div>
 	<!-- ADD HERE -->
 
-              
+
       <div class="col-md-0 col-md-offset-3" >
 <div class="panel panel-primary">
 		<div class="panel-heading">
-						<h3 class="panel-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student List</h3> 
+						<h3 class="panel-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student List</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-								
+
 							</span>
 						</div>
 			    </div>
-					
-				  					
+
+
 				  <table width="99%" class="table table-hover" id="dev-table">
 					  <thead>
 						  <tr>
@@ -191,8 +191,8 @@
     <th width="18%">Student name</th>
 							  <th width="15%">Grade</th>
 							  <th width="15%">&nbsp;</th>
-           
-                              
+
+
 						  </tr>
                           <tbody>
 							<tr>
@@ -205,8 +205,8 @@
     <option value=""> C</option>
        <option value=""> D</option>
      </select></td>
-                                
-                              <td> 
+
+                              <td>
      <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#myModal">
 
           <span class="fa fa-list-alt" aria-hidden="true"></span> Student profile & Comments </br>
@@ -221,7 +221,7 @@
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -250,10 +250,10 @@
   </tr>
 
 </table>
-             
-   
-  
-    
+
+
+
+
         </form>
       </div>
 
@@ -263,16 +263,16 @@
       </div>
     </div>
   </div>
-</div>                         
+</div>
                               </td>
 							</tr>
-							
+
 						</tbody>
 					  </thead>
 
 				  </table>
 		  </div>
-     
+
 
 
       <!-- END ADD -->

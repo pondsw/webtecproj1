@@ -249,7 +249,7 @@
 							<td >&nbsp;</td>
 							</tr>
                             							<tr>
-	<td align="center"> <a href="#" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
+	<td align="center"> <a href="teacher-studentlist.php" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
