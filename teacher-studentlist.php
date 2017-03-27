@@ -192,7 +192,25 @@
 						  </tr>
                           <tbody>
 							<tr>
-								<td><div align="center">1</div></td>
+                                        <?php
+                                        include ('script/database-connect.php');
+
+                                        $conn = connect();
+
+                                        try {
+                                             $stmt = $conn->prepare("SELECT DISTINCT courseid FROM teachcourse AS tc INNER JOIN section AS s ON tc.sectionid=s.sectionid WHERE tc.teacherid='5710000000'");
+                                             $stmt->execute();
+
+                                             foreach($stmt->fetchAll() as $k) {
+                                                  echo "<option value='" . $k['courseid'] ."'>" . $k['courseid'] ."</option>";
+                                             }
+                                        }
+                                        catch(PDOException $e) {
+                                             echo "Error: " . $e->getMessage();
+                                        }
+                                        $conn = null; 
+                                        ?>
+								<!-- <td><div align="center">1</div></td>
 								<td><div align="center">test</div></td>
 								<td><div align="center">test</div></td>
 								<td><div align="center">
@@ -202,7 +220,7 @@
 								    <option value=""> C</option>
 								    <option value=""> D</option>
 							      </select>
-							  </div></td>
+							    </div></td> -->
 
                               <td>
               <div align="center">
