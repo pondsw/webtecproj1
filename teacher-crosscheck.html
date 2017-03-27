@@ -25,6 +25,23 @@
 	color: #FFFFFF;
 }
 </style>
+<script>
+$(document).ready(function(){
+  $("#renew").click(function(){
+    var oldpass = $('#oldpass').val();
+    var newpass = $('#newpass').val();
+    var connewpass = $('#connewpass').val();
+    if(newpass==connewpass){
+      $.get( "chagepassword.php", { 'oldpass': oldpass,'newpass':newpass } ).done(function( data ) {
+            alert(data);
+        });
+    }
+    else{
+      alert('Reenter password.');
+    }
+  });
+});
+</script>
 </head>
 <body>
 <!-- Image and text -->
@@ -37,7 +54,7 @@
         </br> &nbsp;
       </div>
       <ul class="nav navbar-nav navbar-right">
-      
+
       <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
@@ -72,7 +89,7 @@
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -91,7 +108,7 @@
     <tr align="center">
     <th width="148" colspan="4">
     	<div  data-toggle="collapse" data-target="#demo"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit password</a></div>
-        
+
         <!-- edit password--->
   <div id="demo" class="collapse">
 		<table width="500" border="0">
@@ -103,7 +120,7 @@
               </tr>
               <tr>
               <td>&nbsp;</td>
-                <td colspan="2">    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" placeholder="xxxxxxxxxx" width="300" >    
+                <td colspan="2">    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="oldpass" placeholder="xxxxxxxxxx" width="300" >
                 </td>
               </tr>
               <tr>
@@ -113,7 +130,7 @@
               </tr>
               <tr>
                 <td>&nbsp;</td>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" width="300" placeholder="xxxxxxxxxx" >     </td>
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="newpass" width="300" placeholder="xxxxxxxxxx" >     </td>
               </tr>
               <tr>
                 <td></td>
@@ -121,12 +138,12 @@
              </tr>
              <tr>
                 <td>&nbsp;</td>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" width="300" placeholder="xxxxxxxxxx">     </td>
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="connewpass" width="300" placeholder="xxxxxxxxxx">     </td>
               </tr>
               <tr> <td colspan="3">&nbsp;</td></tr>
               <tr>
                 <td>&nbsp;</td>
-                <td colspan="2"><button type="button" class="btn btn-warning btn-xs btn-block" data-toggle="collapse" data-target="#demo" >Submit</button></td>
+                <td colspan="2"><button type="button" id="renew" class="btn btn-warning btn-xs btn-block" data-toggle="collapse" data-target="#demo" >Submit</button></td>
             </tr>
             </table>
 
@@ -138,27 +155,9 @@
 
   </tr>
    <tr> <td>&nbsp;</td></tr>
-   <tr> <td>&nbsp;</td></tr>
-  <tr>
-    <th width="148"><div align="center">User ID :</div></th>
-    <td width="205">&nbsp;</td>
-    <th width="196"><div align="center">Name :</div></th>
-    <td width="241">&nbsp;</td>
-  </tr>
-<tr>    	<td>&nbsp;</td></tr>
-  <tr>
-    <th width="148"><div align="center">Type :</div></th>
-    <td width="205">&nbsp;</td>
-    <th width="196"><div align="center"></div></th>
-    <td width="241">&nbsp;</td>
-  </tr>
- <tr> <td>&nbsp;</td></tr>
- 
+
 </table>
-             
-   
-  
-    
+
         </form>
       </div>
 
@@ -170,12 +169,12 @@
       </div>
     </div>
   </div>
-</div>                   
-        
-        
-        
-        
-        
+</div>
+
+
+
+
+
 				   </div>
 				</div>
 				</div>
@@ -197,13 +196,13 @@
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
-                        
+
         				<li class="active">
 							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
-                        
+
           				<li>
 							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
@@ -218,19 +217,19 @@
 		</div>
 	<!-- ADD HERE -->
 
-              
+
       <div class="col-md-0 col-md-offset-3" >
 <div class="panel panel-primary">
 	  <div class="panel-heading">
-		<h3 class="panel-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Course Check</h3> 
+		<h3 class="panel-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Cross Check</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-								
+
 							</span>
 						</div>
 			    </div>
-					
-				  					
+
+
 				  <table width="99%" class="table table-hover " id="dev-table">
 					  <thead>
 						  <tr>
@@ -249,10 +248,10 @@
                             <th width="13%"><div>
                               <div align="center">Cross check</div>
                             </div></th>
-							  
+
 							  <th width="11%"><div ></div></th>
-           
-                              
+
+
 						  </tr>
                           <tbody>
 							<tr>
@@ -264,24 +263,24 @@
                                 <td><div align="center">
                                   <input type="text" name="" id="" width="30">
                                 </div></td>
-								
-								
-                                
-                              <td> 
+
+
+
+                              <td>
      <button type="button" class="btn btn-success btn-sm"  >
 
           <span class="fa fa-check-square-o" aria-hidden="true"></span> Submit </br>
         </button>
-               
+
                               </td>
 							</tr>
-							
+
 						</tbody>
 					  </thead>
 
 				  </table>
 		  </div>
-     
+
 
 
       <!-- END ADD -->

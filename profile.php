@@ -23,8 +23,8 @@
         $arr = array('prem' => true);
         $arr['userid'] = $userid;
         $arr['type'] = $type;
-        $arr['lname'] = $fname;
-        $arr['fname'] = $lname;
+        $arr['fname'] = $fname;
+        $arr['lname'] = $lname;
         return json_encode($arr);
       }else{
         $arr = array('prem' => false);

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>Admin</title>
+
 
 <link href=".css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,75 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+
+
+   <script>
+  $(document).ready(function(){
+      $("#createform").submit(function(event){
+        event.preventDefault();
+        var fname = $('#fname').val();
+        var lname = $('#lname').val();
+        var pwd = "12345";
+        var isnewpwd = 0;
+        var userid = $('#userid').val();
+        var type = $('#subject2').val();
+
+        $.post( "createUser.php", { 'fname' :fname , 'lname':lname, 'pwd':pwd, 'isnewpwd':isnewpwd, 'userid':userid, 'type':type },
+          function(response,status){
+              alert("User  ["+userid+" "+fname+"]  was create successfully");
+            }
+        );
+      });
+
+      $("#subject").blur(function(){
+        event.preventDefault();
+        $('#tbodytable').html("");
+        var type = $('#subject').val();
+        var fname = $('#searchname').val();
+
+        $.post( "queryUserByType.php", {'type':type, 'fname':fname},
+          function(response,status){
+
+            $('#tbodytable').append(response);
+          });
+      });
+
+      $("#search").click(function(){
+        event.preventDefault();
+        $('#tbodytable').html("");
+        var type = $('#subject').val();
+        var fname = $('#searchname').val();
+
+        $.post( "queryUserByType.php", {'type':type, 'fname':fname},
+          function(response,status){
+
+            $('#tbodytable').append(response);
+          });
+      });
+
+      $("#export").click(function(){
+        // alert("test");
+        var type = $('#subject').val();
+        var fname = $('#searchname').val();
+        $.post( "queryUserByType.php", {'type':type, 'fname':fname},
+          function(response,status){
+            alert(response);
+            $.post( "exportToPdf.php", {'export':response},
+              function(response2,status){
+                alert(response2);
+            });
+          });
+        });
+
+
+  });
+
+
+  </script>
+
+
   <script type="text/javascript" src="js/permission.js"></script>
+
 <style type="text/css">
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
@@ -24,6 +93,26 @@
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
 }
+input[type=text] {
+    width: 350px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
 </style>
 </head>
 <body>
@@ -36,8 +125,7 @@
         <p></br>Learning Management System</p>
       </div>
       <ul class="nav navbar-right navbar-nav">
-        <!----<li><a href="#">Profile</a></li>
-                <li><a href="#">Logout</a></li>--->
+
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user pull-right"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#"><span class="glyphicon glyphicon-user pull-right"></span>Profile</a></li>
@@ -103,8 +191,29 @@
 
         <button type="button" class="btn btn-default "  data-toggle="modal" data-target="#myModal"> <span  class="fa fa-user-plus" aria-hidden="true"></span> Create User
         </button>
+
+
+      <select id="subject" value="Teacher" style="width: 150px">
+	       <option value="T"> Teacher</option>
+         <option value="L"> Teacher-Lab</option>
+         <option value="S"> Student</option>
+      </select>
+
+
+      <input type="text" name="search" id="searchname" placeholder="Search..">
+
+
+      <button type="button" class="btn btn-success btn-sm" id="search" style="margin-top:5px;" >
+              <span class="glyphicon glyphicon-export"></span> Search </br>
+            </button>
+
+
+  <button type="button" class="btn btn-success btn-sm" style="margin-top:5px;" id="export" >
+          <span class="glyphicon glyphicon-export" ></span> Export </br>
+
          <button type="button" class="btn btn-success pull-right" style="margin-left: 10px" >
           <span class="glyphicon glyphicon-export "></span> Export PDF</br>
+
         </button>
          <select name="subject" class="pull-right" value="" style="width: 150px" >
 	 		<option value=""> All</option>
@@ -125,19 +234,21 @@
 
       </div>
       <div class="modal-body">
-               <form class="form-horizontal col-sm-12">
+               <form id="createform" class="form-horizontal col-sm-12" action="createUser.php" method="POST">
           <div class="left-inner-addon ">
     <i class="fa fa-user" aria-hidden="true"></i>
     <input type="text"
            class="form-control"
-           placeholder="Firstname" />
+           placeholder="Firstname"
+           id="fname" />
 </div>
 <div> </br></div>
                            <div class="left-inner-addon ">
     <i class="fa fa-user" aria-hidden="true"></i>
     <input type="text"
            class="form-control"
-           placeholder="Lastname" />
+           placeholder="Lastname"
+           id="lname" />
 </div>
 
 <div> </br></div>
@@ -146,20 +257,25 @@
     <i class="fa fa-user" aria-hidden="true"></i>
     <input type="text"
            class="fa fa-id-card" aria-hidden="true"
-           placeholder="User ID" />
+           placeholder="User ID"
+           id="userid"/>
 </div>
 <div> </br></div>
 
         <div class="left-inner-addon ">
     <i class="fa fa-" aria-hidden="true"></i>
-           <select name="subject" value="" style="width: 150px">
-	<option value=""> Teacher</option>
-    <option value=""> Teacher-Lab</option>
-    <option value=""> Student</option>
+           <select id="subject2" value="Teacher" style="width: 150px">
+	<option value="T"> Teacher</option>
+    <option value="L"> Teacher-Lab</option>
+    <option value="S"> Student</option>
      </select>
 </div>
 
 <div> </br></div>
+
+      <div class="form-group"><button type="submit" class="btn btn-success " >Submit</button> <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p> <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button></div>
+<div> </br></div>
+
 
 
         </form>
@@ -196,27 +312,25 @@
 						  <tr>
 							  <th width="11%">#
 							  <th width="22%">Firstname</th>
-    <th width="23%">Lastname</th>
+                <th width="23%">Lastname</th>
 							  <th width="21%">User ID</th>
 							  <th width="23%">Password</th>
-
-
 						  </tr>
-                          <tbody>
-							<tr>
+
+              <tbody id="tbodytable">
+							<!-- <tr>
 								<td>1</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
-
-                               <td>      </td>
+                <td>      </td>
 							</tr>
 							<tr>
 								<td>2</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
-                                <td></td>
+                <td></td>
 
 							</tr>
 							<tr>
@@ -224,10 +338,11 @@
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
-                                <td></td>
+                <td></td>
+							</tr> -->
 
-							</tr>
 						</tbody>
+
 					  </thead>
 
 				  </table>
@@ -252,4 +367,7 @@
 
 
 </body>
+
+
+
 </html>

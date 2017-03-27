@@ -25,6 +25,41 @@
 	color: #FFFFFF;
 }
 </style>
+<script>
+var myBookId = "";
+$(document).on("click", ".open-AddBookDialog", function () {
+     $myBookId = $(this).data('id');
+     var myStudentName = $(this).data('name');
+     $(".modal-body #studentid").text( "Student ID : "+$myBookId );
+     $(".modal-body #studentname").text( "Student Name : "+myStudentName );
+});
+
+$(document).ready(function() {
+    $("#buttonSubmit").click(function(){
+         $.ajax({
+        type: "POST",
+        url: "update-comment.php",
+        data: { cid: $myBookId, comment: $("#textarea").val()},
+        success:function( msg ) {
+
+        }
+       });
+    });
+});
+
+function fetch_select(val){
+     $.ajax({
+          type: 'post',
+          url: 'fetch_grade.php',
+          data: {
+               get_option:val
+          },
+          success:function( msg ) {
+
+         }
+     })
+}
+</script>
 </head>
 <body>
 <!-- Image and text -->
@@ -71,7 +106,7 @@
 
       </div>
       <div class="modal-body">
-               <form class="form-horizontal col-sm-12">
+               <form class="form-horizontal col-sm-12" >
 
 <table width="500" height="300" border="0" align="center">
   <tr>
@@ -210,14 +245,14 @@
           								echo "<td><div align='center'>".$k['studentid']."</div></td>";
           								echo "<td><div align='center'>".$k['fname']." ".$k['lname']."</div></td>";
           								echo "<td><div align='center'>";
-          								echo "<select name='grade' style='width: 100px'>";
-          								echo "<option value='A'>A</option>";
-          								echo "<option value='B'>B</option>";
-          								echo "<option value='C'>C</option>";
-          								echo "<option value='D'>D</option>";
+          								echo "<select name='".$k['studentid']."' style='width: 100px' onchange='fetch_select(this.value)'>";
+          								echo "<option value='".$k['studentid']."-A'>A</option>";
+          								echo "<option value='".$k['studentid']."-B'>B</option>";
+          								echo "<option value='".$k['studentid']."-C'>C</option>";
+          								echo "<option value='".$k['studentid']."-D'>D</option>";
           							     echo "</select></div></td>";
                                                   echo "<td><div align='center'>";
-                                                  echo "<button type='button' class='btn btn-warning btn-sm'  data-toggle='modal' data-target='#myModal1'>";
+                                                  echo "<button type='button' class='open-AddBookDialog btn btn-warning btn-sm'  data-toggle='modal' data-target='#myModal' data-id='".$k['studentid']."' data-name='".$k['fname']." ".$k['lname']."'>";
                                                   echo "<span class='fa fa-list-alt' aria-hidden='true'></span> Student profile & Comments </br>";
                                                   echo "</button>";
                                                   echo "</div></td>";
@@ -233,7 +268,7 @@
                                         ?>
                               <td>
 
-              <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header modal-header-info">
@@ -253,10 +288,11 @@
                               </tr>
                             <tr> <td>&nbsp;</td></tr>
                             <tr>
-                              <th width="148"><div align="center">Student ID : 1</div></th>
-                              <td width="205">&nbsp;</td>
-                              <th width="196"><div align="center">Student name : 1</div></th>
-                              <td width="241">&nbsp;</td>
+                              <th width="50">&nbsp;</th>
+                              <td width="430"><div align="center"><label type="text" name="studentid" id="studentid" value=""></label></div></td>
+                              <th width="450"><div align="center"><label type="text" name="studentname" id="studentname"></div></th>
+                              <td width="30">&nbsp;</td>
+                         </center>
                               </tr>
                             <tr>
                               <td>&nbsp;</td>
@@ -265,13 +301,13 @@
                               <th colspan="4">Comment</th>
                               </tr>
                             <tr>
-                              <td colspan="4"><textarea name="textarea" rows="3" class="form-control custom-control" style="resize:none ; width: 500px"  placeholder="-------Comment Here-------" ></textarea></td>
+                              <td colspan="4"><textarea name="textarea" id="textarea" rows="3" class="form-control custom-control" style="resize:none ; width: 500px"  placeholder="-------Comment Here-------" ></textarea></td>
                               </tr>
                             <tr> <td>&nbsp;</td></tr>
                             <tr>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
-                              <td colspan="2"><div align="right"><a href="" class="btn btn-success">Submit</a></div></td>
+                              <td colspan="2"><div align="right"><button type="button" class="btn btn-success" id="buttonSubmit">Submit</button></div></td>
                               </tr>
 
                           </table>
@@ -280,7 +316,6 @@
 
 
                         </div>
-                        </form>
                       </div>
 
                     <div class="modal-footer">
@@ -302,11 +337,8 @@
 				  </table>
 		  </div>
 
-              <button type="button" class="btn btn-success ; pull-right " >
-          <span class="glyphicon glyphicon-check"></span> Submit </br>
-        </button>
 
-
+</form>
 
       <!-- END ADD -->
   </div>
