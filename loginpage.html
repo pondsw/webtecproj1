@@ -37,7 +37,8 @@ $(document).ready(function(){
           }else if(obj["type"] == "A"){
             location.replace("admin-createUser.html");
           }
-      });
+        }
+      );
     });
 });
 </script>
@@ -53,7 +54,7 @@ $(document).ready(function(){
 <div class="login">
   <h1>Login</h1>
 
-  <form class="form" method="post" action="#">
+  <!-- <form class="form" method="post" action="#"> -->
 
   <form id="loginfrom" class="form" method="post" action="">
 
@@ -67,7 +68,7 @@ $(document).ready(function(){
     </p>
 
     <p class="field">
-      
+
       <input type="password" id="pwd" name="password" placeholder="Password" required/>
       <i class="fa fa-key"></i>
 

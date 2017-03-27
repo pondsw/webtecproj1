@@ -25,6 +25,8 @@
 	color: #FFFFFF;
 }
 </style>
+
+<link rel="stylesheet" media="screen" href="css/permission.css">
 <!-- <script type="text/javascript">
      function fetch_select(val){
           $.ajax({
