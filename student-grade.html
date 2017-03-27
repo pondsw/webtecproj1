@@ -15,6 +15,17 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  $.ajax({
+  type: "POST",
+  url: "testing.php",
+  success: function(text){
+  console.log(text);
+  $('#tabletbody').append(text);
+  }
+  });
+  console.log('test');
+  </script>
 <style type="text/css">
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
@@ -26,8 +37,6 @@
 </head>
 <body>
 <!-- Image and text -->
-
-
     <nav class="navbar navbar-light bg-faded">
     <div class="container-fluid">
       <div class="navbar-header" > <a class="navbar-brand"  href="#"> <img src="./images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" > </a>
@@ -109,42 +118,28 @@
 				  <tr></tr>
 				</tbody>
                 <thead>
-                  <tr>
+                  <tr class='test'>
                     <th width="9%"><div align="center">#
                     </div>
                     <th width="32%"><div align="center">Course name</div></th>
                     <th width="33%"><div align="center">Course Id</div></th>
                     <th width="26%"><div align="center">Grade</div></th>
                   </tr>
-                <tbody>
-                  <tr>
-                    <td><div align="center">1</div></td>
-                    <td><div align="center"></div></td>
-                    <td><div align="center"></div></td>
-                    <td><div align="center"></div></td>
-                  </tr>
-
-                </tbody>
-                <tbody>
+                <tbody id="tabletbody">
                 </tbody>
 				</table>
 </div>
 
-
-
-
-
-
       <!-- END ADD -->
   </div>
 
-          <h3 class="panel-title">&nbsp;</h3>
+          <h3 class="panel-title"></h3>
 </div>
 </div>
     </div>
 </div>
 </div>
-
-
+<script>
+</script>
 </body>
 </html>

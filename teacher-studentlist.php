@@ -37,7 +37,7 @@
         <p></br>Learning Management System</p>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      
+
       <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
@@ -72,7 +72,7 @@
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -107,12 +107,12 @@
     <td width="241">&nbsp;</td>
   </tr>
  <tr> <td>&nbsp;</td></tr>
- 
+
 </table>
-             
-   
-  
-    
+
+
+
+
         </form>
       </div>
 
@@ -124,12 +124,12 @@
       </div>
     </div>
   </div>
-</div>                   
-        
-        
-        
-        
-        
+</div>
+
+
+
+
+
 				   </div>
 				</div>
 				</div>
@@ -137,10 +137,15 @@
 				<div class="profile-usermenu">
 										<ul class="nav">
 
+<<<<<<< HEAD:teacher-studentlist.html
 					  <li ><a href="teacher-home.html">
 							<i class="glyphicon glyphicon-home"></i>Home </a>
 					  </li>
 						<li class="active"><a href="teacher-courselist.php">
+=======
+
+						<li class="active"><a href="teacher-courselistka.html">
+>>>>>>> d5bc8fe7a04b14bb58f78bccefe166eda8158e8e:teacher-studentlist.php
 							<i class="fa fa-book" aria-hidden="true"></i>
 
 							<span>Course-list</span> </a>
@@ -151,13 +156,13 @@
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
-                        
+
         				<li>
 							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
-                        
+
           				<li>
 							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
@@ -172,22 +177,23 @@
 		</div>
 	<!-- ADD HERE -->
 
-              
+
       <div class="col-md-0 col-md-offset-3" >
 <div class="panel panel-primary">
 		<div class="panel-heading">
-						<h3 class="panel-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student List</h3> 
+						<h3 class="panel-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student List</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-								
+
 							</span>
 						</div>
 			    </div>
-					
-				  					
+
+
 				  <table width="99%" class="table table-hover" id="dev-table">
 					  <thead>
 						  <tr>
+<<<<<<< HEAD:teacher-studentlist.html
 							  <th width="5%"><div align="center">#
 							  </div>
 						    <th width="18%"><div align="center">Student ID</div></th>
@@ -277,18 +283,102 @@
                     </div>
                   </div>
 </div>                         
+=======
+							  <th width="5%">#
+							  <th width="18%">Student ID</th>
+    <th width="18%">Student name</th>
+							  <th width="15%">Grade</th>
+							  <th width="15%">&nbsp;</th>
+
+
+						  </tr>
+                          <tbody>
+							<tr>
+								<td>1</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td><select name="grade" value="" style="width: 100px">
+	<option value=""> A</option>
+    <option value=""> B</option>
+    <option value=""> C</option>
+       <option value=""> D</option>
+     </select></td>
+
+                              <td>
+     <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#myModal">
+
+          <span class="fa fa-list-alt" aria-hidden="true"></span> Student profile & Comments </br>
+        </button>
+              <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-info">
+ 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h2><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student profile & Comments </h2>
+
+      </div>
+      <div class="modal-body">
+               <form class="form-horizontal col-sm-12">
+
+<table width="500" height="300" border="0" align="center">
+  <tr>
+    <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
+  </tr>
+  <tr> <td>&nbsp;</td></tr>
+  <tr>
+    <th width="148"><div align="center">Student ID :</div></th>
+    <td width="205">&nbsp;</td>
+    <th width="196"><div align="center">Student name :</div></th>
+    <td width="241">&nbsp;</td>
+  </tr>
+  						<tr>
+                        	<td>&nbsp;</td>
+                        </tr>
+  <tr>
+    <th colspan="4">Comment</th>
+  </tr>
+  <tr>
+    <td colspan="4"><textarea name="textarea" rows="3" class="form-control custom-control" style="resize:none ; width: 500px"  placeholder="-------Comment Here-------" ></textarea></td>
+  </tr>
+<tr> <td>&nbsp;</td></tr>
+ <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2"><div align="right"><a href="" class="btn btn-success">Submit</a></div></td>
+  </tr>
+
+</table>
+
+
+
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+ <div align="center"><button type="button" class="btn btn-info btn-lg btn-block ">Show more detail</button></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> d5bc8fe7a04b14bb58f78bccefe166eda8158e8e:teacher-studentlist.php
                               </td>
 							</tr>
-							
+
 						</tbody>
 					  </thead>
 
 				  </table>
 		  </div>
+<<<<<<< HEAD:teacher-studentlist.html
           
               <button type="button" class="btn btn-success ; pull-right " >
           <span class="glyphicon glyphicon-check"></span> Submit </br>
         </button>
+=======
+
+>>>>>>> d5bc8fe7a04b14bb58f78bccefe166eda8158e8e:teacher-studentlist.php
 
 
       <!-- END ADD -->
