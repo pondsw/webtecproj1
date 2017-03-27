@@ -38,6 +38,11 @@
                }
           })
      }
+     $(document).ready(function(){
+          $("#buttonSubmit").click(function(){
+
+          });
+     });
 </script>
 </head>
 <body>
@@ -183,7 +188,7 @@
 			</div>
 		</div>
 	<!-- ADD HERE -->
-
+     <form action="teacher-studentlist.php" method="get">
               <div class="row">
 			<div class="col-md-6 col-md-offset-1">
 				<div class="panel panel-primary">
@@ -209,7 +214,7 @@
 						</thead>
 						<tbody>
 							<tr>
-							    <td align="center">    <select name="course" onchange="fetch_select(this.value)" style="width: 150px">
+							    <td align="center">    <select name="course" id="course" onchange="fetch_select(this.value)" style="width: 150px">
                                             <option>Select Course</option>
                                             <?php
                                             include ('script/database-connect.php');
@@ -243,15 +248,15 @@
 							</tr>
 							<tr>
 								 <td align="center"><select name="section" id="select_section" style="width: 150px">
-     </select> </td>
+                                   </select> </td>
 							</tr>
-                            <tr>
-							<td >&nbsp;</td>
+                                   <tr>
+							      <td >&nbsp;</td>
 							</tr>
-                            							<tr>
-	<td align="center"> <a href="teacher-studentlist.php" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
+                				<tr>
+	                                    <td align="center" ><input type="submit" class="btn btn-warning btn-lg btn-block"></td>
 							</tr>
-                            <tr>
+                                   <tr>
 							<td >&nbsp;</td>
 							</tr>
 						</tbody>
@@ -272,7 +277,7 @@
     </div>
 </div>
 </div>
-
+</form>
 
 </body>
 </html>

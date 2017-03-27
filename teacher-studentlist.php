@@ -29,7 +29,6 @@
 <body>
 <!-- Image and text -->
 
-
 <!--NAVBAR-->
     <nav class="navbar navbar-light bg-faded">
     <div class="container-fluid">
