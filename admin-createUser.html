@@ -16,6 +16,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+  <script type="text/javascript" src="js/permission.js"></script>
 <style type="text/css">
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
@@ -100,11 +101,11 @@
 
      <div class="col-md-0 col-md-offset-3" >
 
-        <button type="button" class="btn btn-default "  data-toggle="modal" data-target="#myModal"> <span  class="fa fa-user-plus" aria-hidden="true"></span> Create User 
+        <button type="button" class="btn btn-default "  data-toggle="modal" data-target="#myModal"> <span  class="fa fa-user-plus" aria-hidden="true"></span> Create User
         </button>
          <button type="button" class="btn btn-success pull-right" style="margin-left: 10px" >
           <span class="glyphicon glyphicon-export "></span> Export PDF</br>
-        </button> 
+        </button>
          <select name="subject" class="pull-right" value="" style="width: 150px" >
 	 		<option value=""> All</option>
             <option value=""> Professor</option>
@@ -112,7 +113,7 @@
     		<option value=""> Student</option>
      	 </select>
 
-	  
+
 
 
        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -156,17 +157,17 @@
     <option value=""> Teacher-Lab</option>
     <option value=""> Student</option>
      </select>
-</div> 
+</div>
 
-<div> </br></div>    
-  
-    
+<div> </br></div>
+
+
         </form>
       </div>
 
       <div class="modal-footer">
-       	<div class="form-group"><button type="submit" class="btn btn-success btn-lg ">Submit</button> 
-        <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p> 
+       	<div class="form-group"><button type="submit" class="btn btn-success btn-lg ">Submit</button>
+        <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p>
         <button class="btn btn-lg" data-dismiss="modal" aria-hidden="true">Cancel</button></div>
 
       </div>

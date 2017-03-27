@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-
+<script type="text/javascript" src="js/permission.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
@@ -38,7 +38,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
 
-      <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+      <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
   </div>
