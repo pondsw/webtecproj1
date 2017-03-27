@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Bootstrap tutorials by Siam HTML</title>
+<title></title>
 
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,10 +81,10 @@ function loadb(){
 					  <li ><a href="#">
 							<i class="glyphicon glyphicon-home"></i>
 							Home </a>
-					  </li class="active" >
-						<li><a href="#">
+					  </li>
+						<li class="active"><a href="#">
 							<i class="glyphicon glyphicon-check"></i>
-							<span>Attending</span> </a>
+							<span>Attendance</span> </a>
 						</li>
 
 						<li  >
@@ -100,51 +100,38 @@ function loadb(){
 			</div>
 		</div>
 	<!-- ADD HERE -->
-
-
-     
-   <div class="col-sm-0 col-md-offset-3" >
-       <div class="panel panel-info">
-				<div class="panel-heading">
-						<h3 class="panel-title">Scan QRcode</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-
-							</span>
-						</div>
-			    </div>
-
-
-				  <table width="99%" class="table table-hover" id="dev-table">
+               <div class="row">
+			<div class="col-md-6 col-md-offset-1">
+			  <div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title"></i><i class="glyphicon glyphicon-check"></i> Attendance </h1>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+					</div>
+					
+				<table width="99%"  id="dev-table">
 					  <thead>
-						  <tr>
-							  <th width="16%">
-						    <th width="19%">Fill QRcode</th>
-    <th width="33%" align="center"><input type="text" value=""></th>
-							  <th width="29%"><a href="" class="btn btn-success">Submit</a></th>
-
-
-
+                    
+                      	<tr><td colspan="4">&nbsp;</td> </tr>
+						<tr><td colspan="4">&nbsp;</td> </tr>	
+						<tr>
+							<th width="12%">
+						    <th width="19%" style="font-size:18px">QRcode</th>
+    						<th width="43%" align="center"><input align="center" type="text" value=""></th>
+							<th width="26%"><a href="" class="btn btn-success">Submit</a></th>
 					    </tr>
-                    <tbody>
-							<tr>
-								<td colspan="4"  align="center">OR</td>
+                        <tr><td colspan="4">&nbsp;</td> </tr>
+                        <tr><td colspan="4">&nbsp;</td> </tr>
+
+					  </thead>
+
+			    </table>
+				</div>
+			</div>
 
 
-			</tr>
-            <tr>
-								<td></td>
-								<td align="right"></td>
-								<td align="center"><p><img src="./images/qrcode.png" width="50px" height="50px"></p>
-							    <p><a href="" class="btn btn-success"   onClick="loadb()">Scan QRcode</a></p></td></td>
-								<td width="3%"></td>
 
-			</tr>
-						</tbody>
-					  <td height="2"></thead>
-
-				  </table>
-		  </div>
 
 
       <!-- END ADD -->

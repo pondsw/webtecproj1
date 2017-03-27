@@ -188,7 +188,7 @@
 			<div class="col-md-6 col-md-offset-1">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title">Course</h3>
+						<h3 class="panel-title">Course list</h3>
 
 					</div>
 					<div class="panel-body">
@@ -201,7 +201,7 @@
 							<td >&nbsp;</td>
 							</tr>
 							<tr>
-							<th width="332" style="text-align:center">Select Course</th>
+							<th width="332" style="text-align:center ; font-size:18px">Select Course</th>
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
@@ -236,7 +236,7 @@
 							</tr>
 
 							<tr>
-								<th style="text-align:center">Select Section</th>
+								<th style="text-align:center ; font-size:18px">Select Section</th>
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
@@ -249,7 +249,7 @@
 							<td >&nbsp;</td>
 							</tr>
                             							<tr>
-	<td align="center"> <a href="teacher-courselistka1.html" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
+	<td align="center"> <a href="#" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
