@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Student</title>
+<title>Bootstrap tutorials by Siam HTML</title>
 
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,10 @@
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/profilebar.css">
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
-<link rel="stylesheet" type="text/css" href="./css/modal.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/qcode-decoder.min.js" ></script>
 <style type="text/css">
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
@@ -28,9 +28,9 @@
 function loadb(){
 	$('#detailpro').show();
 	}
-
+	
 function decode(){
-
+	
 	if(document.getElementById("file").files.length == 0){
 		alert("upload your qrcode");
 	}
@@ -43,26 +43,11 @@ function decode(){
 		qr.decodeFromImage(image, function (err, result) {
       	if (err) throw err;
       		text.value = result;
-  		});
+  		});							
 	}
 	loadb();
 }
-
-</script>
-<script>
-$(document).ready(function(){
-
-    $("#submitbtn").click(function(){
-      var qrcode = $(".qrcode").val();
-      $.get( "student_checkin.php", { 'code': qrcode } ).done(function( data ) {
-            alert(data);
-        });
-    });
-});
-</script>
-<script>
-</script>
-<script type="text/javascript" src="js/permission.js"></script>
+	</script>
 </head>
 <body>
 <!-- Image and text -->
@@ -113,17 +98,17 @@ $(document).ready(function(){
 				<div class="profile-usermenu">
 					<ul class="nav">
 
-					  <li ><a href="student-homej.html">
+					  <li ><a href="#">
 							<i class="glyphicon glyphicon-home"></i>
 							Home </a>
-					  </li>
-						<li class="active"><a href="student-atten.html">
+					  </li class="active" >
+						<li><a href="#">
 							<i class="glyphicon glyphicon-check"></i>
-							<span>Attendance</span> </a>
+							<span>Attending</span> </a>
 						</li>
 
 						<li  >
-							<a href="student-grade.html" >
+							<a href="#" >
 							<i class="glyphicon glyphicon-pencil"></i>
 							Grade report </a>
 						</li>
@@ -135,85 +120,56 @@ $(document).ready(function(){
 			</div>
 		</div>
 	<!-- ADD HERE -->
-               <div class="row">
-			<div class="col-md-6 col-md-offset-1">
-			  <div class="panel panel-primary">
-					<div class="panel-heading">
-						<h1 class="panel-title"></i><i class="glyphicon glyphicon-check"></i> Attendance </h1>
-					</div>
-					<div class="panel-body">
 
-					</div>
 
-				<table width="99%"  id="dev-table">
+     
+   <div class="col-sm-0 col-md-offset-3" >
+       <div class="panel panel-info">
+				<div class="panel-heading">
+						<h3 class="panel-title">Scan QRcode</h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+
+							</span>
+						</div>
+			    </div>
+
+
+				  <table width="99%" class="table table-hover" id="dev-table">
 					  <thead>
-
-                      	<tr><td colspan="4">&nbsp;</td> </tr>
-						<tr><td colspan="4">&nbsp;</td> </tr>
-						<tr>
-							<th width="12%">
-						    <th width="19%" style="font-size:18px">QRcode</th>
-
-
-    						<th width="43%" align="center"><input id="qrText" align="center" type="text" class="qrcode" value=""></th>
-							<th width="26%"> <input id= "submitbtn" class="btn btn-success" type="button" value="Submit"></button>
-
-                               <div class="modal fade" id="myModal" role="dialog">
-
-                                <div class="modal-dialog modal-sm">
-                                  <div class="modal-content">
-                                    <div class="modal-header modal-header-info">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h1 class="modal-title">Attendance</h1>
-                                    </div>
-                                    <div class="modal-body">
-                                    	<div align="center"> <img src="images/check.png" width="150px" height="150px" class="img-responsive" alt=""> </div>
-                                      <p style="color:#000 ; font-size:24px ; text-align:center" >Scan completed!</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+						  <tr>
+							  <th width="16%">
+						    <th width="19%">Fill QRcode</th>
+    <th width="33%" align="center"><input id="qrText" type="text" value=""></th>
+							  <th width="29%"><a href="" class="btn btn-success">Submit</a></th>
 
 
 
-
-
-
-
-                               </th>
 					    </tr>
-              <tbody>
-        <tr>
-          <td colspan="4"  align="center">OR</td>
+                    <tbody>
+							<tr>
+								<td colspan="4"  align="center">OR</td>
 
 
-        </tr>
-        <tr>
-          <td></td>
-          <td align="right"></td>
-          <td align="center"><p><img id="qrImg" src="./images/qrcode.png" width="50px" height="50px"></p>
-                          <label for="upload" class="btn btn-success" style="margin-bottom:10px">
-                            <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                              <input type="file" id="upload" style="display:none">
-                              &nbsp;Upload Your QRcode
-                          </label>
-            <p><a href="" class="btn btn-success"   onClick="decode()">Scan QRcode</a></p></td></td>
-          <td width="3%"></td>
+			</tr>
+            <tr>
+								<td></td>
+								<td align="right"></td>
+								<td align="center"><p><img id="qrImg" src="./images/qrcode.png" width="50px" height="50px"></p>
+                                <label for="upload" class="btn btn-success" style="margin-bottom:10px">
+                                	<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                                    <input type="file" id="upload" style="display:none">
+                                    &nbsp;Upload Your QRcode
+                                </label>
+							    <p><a href="" class="btn btn-success"   onClick="decode()">Scan QRcode</a></p></td></td>
+								<td width="3%"></td>
 
-        </tr>
-        </tbody>
+			</tr>
+						</tbody>
+					  <td height="2"></thead>
 
-					  </thead>
-
-			    </table>
-				</div>
-			</div>
-
-
-
+				  </table>
+		  </div>
 
 
       <!-- END ADD -->
