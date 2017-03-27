@@ -68,7 +68,7 @@ function modalClose(){
         <p></br>Learning Management System</p>
       </div>
       <ul class="nav navbar-nav navbar-right">
-
+      
       <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
@@ -97,13 +97,13 @@ function modalClose(){
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header modal-header-success">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">ร—</button>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
              <h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile </h2>
 
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-
+               
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -138,12 +138,12 @@ function modalClose(){
     <td width="241">&nbsp;</td>
   </tr>
  <tr> <td>&nbsp;</td></tr>
-
+ 
 </table>
-
-
-
-
+             
+   
+  
+    
         </form>
       </div>
 
@@ -155,12 +155,12 @@ function modalClose(){
       </div>
     </div>
   </div>
-</div>
-
-
-
-
-
+</div>                   
+        
+        
+        
+        
+        
 				   </div>
 				</div>
 				</div>
@@ -204,13 +204,13 @@ function modalClose(){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
      <div class="modal-header modal-header-success">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">ร—</button>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3><i class="glyphicon glyphicon-plus"></i> Upload file</h3>
 
       </div>
-
+      
       <form method="post" id="myForm" enctype="multipart/form-data">
-
+      
       <div class="modal-body">
 
        <table align="center">
@@ -238,9 +238,9 @@ function modalClose(){
       <div class="modal-footer">
 
         <input type="submit" class="btn btn-success" name="submit">
-
+        
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="modalClose()">Close</button>
-
+        
 
       </div>
       </form>
@@ -259,32 +259,32 @@ function modalClose(){
 							</span>
 						</div>
 			    </div>
-				<?php
+				<?php 
                     if(isset($_POST["submit"])){
                         if(isset($_FILES["fileupload"])){
-
+                            
                       $errors= array();
                       $file_name = $_FILES['fileupload']['name'];
                       $tis620 = iconv('UTF-8','TIS-620',$file_name);
                       $file_size =$_FILES['fileupload']['size'];
                       $file_tmp =$_FILES['fileupload']['tmp_name'];
                       $file_type=$_FILES['fileupload']['type'];
-
+                      
                       $file_ext=strtolower(pathinfo($file_name,PATHINFO_EXTENSION));
-
+                      
                       $expensions= array("csv","xls","xlsx");
-
+                      
                       if(in_array($file_ext,$expensions)=== false){
                          $errors[]="extension not allowed, please choose a CSV , XLS or XLSX file.";
                       }
-
+                      
                       if($file_size > 2097152){
                          $errors[]='File size must be excately 2 MB';
                       }
-
+                      
                       if(empty($errors)==true){
                          move_uploaded_file($file_tmp,"document/".$tis620);
-
+                         
                         /* $insert_query = "INSERT INTO tbl_users (userName,userProfession,userPic) VALUES (:uname,:uprof,:upic)";
                          $stmt = $DB_con->prepare($insert_query);
                          $stmt->bindParam(':uname',$name);
@@ -300,24 +300,24 @@ function modalClose(){
 
 					  $csvcontents = fgetcsv($handle);
 					  echo "<tr>";
-
+					  
         			  	echo "<th >$csvcontents[0]</th>";
 						echo "<th >$csvcontents[1]</th>";
 						echo "<th >$csvcontents[2]</th>";
 						echo "<th >$csvcontents[3]</th>";
-
+					  
                       echo "</tr>";
-
+					  
 				      echo "<tr>";
 					  $csvcontents = fgetcsv($handle);
 					  echo "<th width='12%' >#";
 					  echo " <th width='32%'>$csvcontents[0]</th>";
    					  echo  "<th width='33%'>$csvcontents[1]</th>";
 					  echo	  "<th width='23%'>$csvcontents[2]</th>";
-
+			
 					  echo	"</tr>";
 					  $count = 0;
-					  while ($csvcontents = fgetcsv($handle)) {
+					  while ($csvcontents = fgetcsv($handle)) { 
 					  	 $count = $count+1;
 	                     echo '<tr>';
 						 echo "<th>$count";
@@ -326,17 +326,17 @@ function modalClose(){
 					     echo "<th >$csvcontents[2]</th>";
 						 echo '</tr>';
 					  }
-
-
+					  
+					  
 					  echo "</thead>";
 					  echo "</table>";
-
-
+						
+						
 						}
                   }
-
+                    
                 ?>
-
+				 
 		  </div>
 
 
