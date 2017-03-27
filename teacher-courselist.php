@@ -25,31 +25,16 @@
 	color: #FFFFFF;
 }
 </style>
-<<<<<<< HEAD
 
 <link rel="stylesheet" media="screen" href="css/permission.css">
 <!-- <script type="text/javascript">
-=======
-<script type="text/javascript">
->>>>>>> f8e563922f914a7a45f39e707d0605e847c14a84
      function fetch_select(val){
           $.ajax({
                type: 'post',
-               url: 'fetch_section.php?teacherid="5710000000"',
-               data: {
-                    get_option:val
-               },
-               success : function (response){
-                    document.getElementById("select_section").innerHTML=response;
-               }
+               url:
           })
      }
-     $(document).ready(function(){
-          $("#buttonSubmit").click(function(){
-
-          });
-     });
-</script>
+</script> -->
 </head>
 <body>
 <!-- Image and text -->
