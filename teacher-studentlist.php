@@ -193,8 +193,8 @@
                           <tbody>
 							<tr>
 								<td><div align="center">1</div></td>
-								<td><div align="center"></div></td>
-								<td><div align="center"></div></td>
+								<td><div align="center">test</div></td>
+								<td><div align="center">test</div></td>
 								<td><div align="center">
 								  <select name="grade" value="" style="width: 100px">
 								    <option value=""> A</option>
