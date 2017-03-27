@@ -134,29 +134,31 @@
 				</div>
 <!----END NAV----->
 				<div class="profile-usermenu">
-										<ul class="nav">
+				  <ul class="nav">
 
-					  
-						<li ><a href="teacher-courselistka.html">
+					  <li ><a href="teacher-home.html">
+							<i class="glyphicon glyphicon-home"></i>Home </a>
+					  </li>
+						<li ><a href="teacher-courselist.php">
 							<i class="fa fa-book" aria-hidden="true"></i>
 
 							<span>Course-list</span> </a>
 						</li>
 
 						<li class="active">
-							<a href="#" >
+							<a href="teacher-Atten.html" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
                         
         				<li >
-							<a href="#" >
+							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
                         
           				<li >
-							<a href="#" >
+							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
 							Find Student </a>
 						</li>
@@ -174,18 +176,17 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h1 class="panel-title">
-                      <i class="fa fa-search" aria-hidden="true"></i> Attendance</h1>
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i> Attendance</h1>
 
 					</div>
 					<div class="panel-body">
-						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+
 					</div>
 					
-				  <table width="500" border="0" align="center">
-  
-  <tr><td >&nbsp;</td></tr>
-  <tr>
-    <th><div align="center">Select Course</div></th>
+				  <table class="table-tb" width="500" border="0" align="center">
+ 
+  <tr >
+    <th height="50" ><div align="center">Select Course</div></th>
   </tr>
   
  
@@ -197,9 +198,9 @@
       </select>
     </div></td>
   </tr>
-  <tr><td >&nbsp;</td></tr>
+  
   <tr>
-    <th><div align="center">Select Section</div></th>
+    <th height="30"><div align="center">Select Section</div></th>
   </tr>
   <tr>
     <td><div align="center">
@@ -209,16 +210,16 @@
       </select>
     </div></td>
   </tr>
-  <tr><td >&nbsp;</td></tr>
+  
   <tr>
-    <th><div align="center">Date</div></th>
+    <th height="30"><div align="center">Date</div></th>
   </tr>
   <tr>
     <td><div align="center"><input type="date" name="date" width="300"></div></td>
   </tr>
-  <tr><td >&nbsp;</td></tr>
+  
   <tr>
-    <th><div align="center">QRcode time</div></th>
+    <th height="30"><div align="center">QRcode time</div></th>
   </tr>
   <tr>
     <td><div align="center">
@@ -229,10 +230,10 @@
       </select>
      ;</div></td> 
   </tr>
-  <tr><td >&nbsp;</td></tr>
   
+  <tr><td>&nbsp;</td></tr>
  <tr>
- <td><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal" ><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
+ <td ><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal"  ><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

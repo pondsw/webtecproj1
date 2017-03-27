@@ -16,8 +16,7 @@
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-<script type="text/javascript" src="js/permission.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
@@ -26,20 +25,6 @@
 	color: #FFFFFF;
 }
 </style>
-<!-- <script>
- $(document).ready(function(){
-     $.post( "profile.php", { 'action' : 'checkprem' , 'type':  window.location.pathname },
-         function(response,status){
-           alert(response);
-           var obj = JSON.parse(response);
-           if(obj['prem'] == false ){
-             location.replace("loginpage.html");
-           }
-
-         }
-       );
-     });
-</script> -->
 </head>
 <body>
 <!-- Image and text -->
@@ -53,7 +38,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
 
-      <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+      <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
   </div>
@@ -71,7 +56,7 @@
 						Name
 					</div>
 					<div class="profile-usertitle-job">
-						Student
+						Professor
 				   </div><div class="profile-usertitle-job">
 						<button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModalEdit">
 
@@ -103,56 +88,10 @@
 
        </tr>
   <tr> <td>&nbsp;</td></tr>
-    <tr align="center">
-    <th width="148" colspan="4">
-    	<div  data-toggle="collapse" data-target="#demo"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit password</a></div>
-
-        <!-- edit password--->
-  <div id="demo" class="collapse">
-		<table width="500" border="0">
-         	<tr> <td colspan="3">&nbsp;</td></tr>
-              <tr>
-                <td width="43">&nbsp;</td>
-                <td width="194">Old Passward</td>
-                <td width="249">&nbsp;</td>
-              </tr>
-              <tr>
-              <td>&nbsp;</td>
-                <td colspan="2">    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" placeholder="xxxxxxxxxx" width="300" >
-                </td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>New Password</td>
-                <td>&nbsp;</td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" width="300" placeholder="xxxxxxxxxx" >     </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td colspan="2">Comfirm new password    </td>
-             </tr>
-             <tr>
-                <td>&nbsp;</td>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" width="300" placeholder="xxxxxxxxxx">     </td>
-              </tr>
-              <tr> <td colspan="3">&nbsp;</td></tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td colspan="2"><button type="button" class="btn btn-warning btn-xs btn-block" data-toggle="collapse" data-target="#demo" >Submit</button></td>
-            </tr>
-            </table>
-
-
-  </div>
-</div>
- 		<!---end edit password--->
-    </th>
+    <tr>
+    <th width="148" colspan="4"><div align="center"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit password</div></th>
 
   </tr>
-   <tr> <td>&nbsp;</td></tr>
    <tr> <td>&nbsp;</td></tr>
   <tr>
     <th width="148"><div align="center">User ID :</div></th>
@@ -197,40 +136,28 @@
 <!----END NAV----->
 				<div class="profile-usermenu">
 										<ul class="nav">
-
-<<<<<<< HEAD
-
-						<li ><a href="teacher-courselistka.html">
-=======
 					  <li ><a href="teacher-home.html">
 							<i class="glyphicon glyphicon-home"></i>Home </a>
 					  </li>
-						<li ><a href="teacher-courselist.php">
->>>>>>> f8e563922f914a7a45f39e707d0605e847c14a84
+						<li class="active"><a href="teacher-courselist.php">
 							<i class="fa fa-book" aria-hidden="true"></i>
-
 							<span>Course-list</span> </a>
 						</li>
-
 						<li>
 							<a href="teacher-Atten.html" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
-
-        				<li class="active">
+        				<li>
 							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
-
           				<li>
 							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
 							Find Student </a>
 						</li>
-
-
 					</ul>
 				</div>
 				<!-- END MENU -->
@@ -241,78 +168,108 @@
 
       <div class="col-md-0 col-md-offset-3" >
 <div class="panel panel-primary">
-<<<<<<< HEAD
 		<div class="panel-heading">
-						<h3 class="panel-title">Course Check</h3>
-=======
-	  <div class="panel-heading">
-		<h3 class="panel-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Course Check</h3> 
->>>>>>> f8e563922f914a7a45f39e707d0605e847c14a84
+						<h3 class="panel-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student List</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 
 							</span>
 						</div>
 			    </div>
-<<<<<<< HEAD
 
 
 				  <table width="99%" class="table table-hover" id="dev-table">
 					  <thead>
 						  <tr>
-							  <th width="23%"><div align="center">Course ID
-						      </div>
-						    <th width="34%"><div align="center">Section</div></th>
-    <th width="22%">Cross check</th>
+							  <th width="5%"><div align="center">#
+							  </div>
+						    <th width="18%"><div align="center">Student ID</div></th>
+    <th width="18%"><div align="center">Student name</div></th>
+							  <th width="15%"><div align="center">Grade</div></th>
+							  <th width="15%"><div align="center"></div></th>
 
-							  <th width="21%">&nbsp;</th>
 
-
-=======
-					
-				  					
-				  <table width="99%" class="table table-hover " id="dev-table">
-					  <thead>
-						  <tr>
-							  <th width="25%"><div>
-							    <div align="center">Course name</div>
-							  </div></th>
-							  <th width="22%"><div >
-							    <div align="center">Course ID</div>
-							  </div></th>
-						    <th width="16%"><div >
-						      <div align="center">Section</div>
-						    </div></th>
-     						<th width="13%"><div>
-     						  <div align="center">Student checked</div>
-     						</div></th>
-                            <th width="13%"><div>
-                              <div align="center">Cross check</div>
-                            </div></th>
-							  
-							  <th width="11%"><div ></div></th>
-           
-                              
->>>>>>> f8e563922f914a7a45f39e707d0605e847c14a84
 						  </tr>
                           <tbody>
 							<tr>
-                            	<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-                                <td><div align="center">
-</div></td>
-                                <td><div align="center">
-                                  <input type="text" name="" id="" width="30">
-                                </div></td>
-
-
+								<td><div align="center">1</div></td>
+								<td><div align="center"></div></td>
+								<td><div align="center"></div></td>
+								<td><div align="center">
+								  <select name="grade" value="" style="width: 100px">
+								    <option value=""> A</option>
+								    <option value=""> B</option>
+								    <option value=""> C</option>
+								    <option value=""> D</option>
+							      </select>
+							  </div></td>
 
                               <td>
-     <button type="button" class="btn btn-success btn-sm"  >
+              <div align="center">
+                <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#myModal">
 
-          <span class="fa fa-check-square-o" aria-hidden="true"></span> Submit </br>
-        </button>
+                  <span class="fa fa-list-alt" aria-hidden="true"></span> Student profile & Comments </br>
+                  </button>
+              </div>
+              <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header modal-header-info">
+                      <div align="center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      </div>
+                      <h2 align="center"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student profile & Comments </h2>
+
+                      </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal col-sm-12">
+
+                        <div align="center">
+                          <table width="500" height="300" border="0" align="center">
+                            <tr>
+                              <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
+                              </tr>
+                            <tr> <td>&nbsp;</td></tr>
+                            <tr>
+                              <th width="148"><div align="center">Student ID :</div></th>
+                              <td width="205">&nbsp;</td>
+                              <th width="196"><div align="center">Student name :</div></th>
+                              <td width="241">&nbsp;</td>
+                              </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              </tr>
+                            <tr>
+                              <th colspan="4">Comment</th>
+                              </tr>
+                            <tr>
+                              <td colspan="4"><textarea name="textarea" rows="3" class="form-control custom-control" style="resize:none ; width: 500px"  placeholder="-------Comment Here-------" ></textarea></td>
+                              </tr>
+                            <tr> <td>&nbsp;</td></tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td colspan="2"><div align="right"><a href="" class="btn btn-success">Submit</a></div></td>
+                              </tr>
+
+                          </table>
+
+
+
+
+                        </div>
+                        </form>
+                      </div>
+
+                    <div class="modal-footer">
+                      <div align="center">
+                        <button type="button" class="btn btn-info btn-lg btn-block ">Show more detail</button>
+
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+</div>
 
                               </td>
 							</tr>
@@ -322,6 +279,10 @@
 
 				  </table>
 		  </div>
+
+              <button type="button" class="btn btn-success ; pull-right " >
+          <span class="glyphicon glyphicon-check"></span> Submit </br>
+        </button>
 
 
 
