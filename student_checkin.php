@@ -22,7 +22,7 @@ try{
 		}
 	}
 	else{
-		echo "QRcode not found.";
+		echo 'Qrcode not found.';
 		exit;
 		}
 	$qid = $output["secdetailid"];
@@ -49,6 +49,7 @@ if($status == true){
 		$sql = "INSERT INTO sectioncheck (secdetailid, studentid, datetime, status) VALUES ('$qid', '$studentid',CURRENT_TIMESTAMP, 'checked')";
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
+		echo "Check in Successful.";
 	}
 
 	catch(PDOException $e) {
