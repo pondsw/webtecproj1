@@ -25,14 +25,20 @@
 	color: #FFFFFF;
 }
 </style>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
      function fetch_select(val){
           $.ajax({
                type: 'post',
-               url:
+               url: 'fetch_section.php?teacherid="5710000000"',
+               data: {
+                    get_option:val
+               },
+               success : function (response){
+                    document.getElementById("select_section").innerHTML=response;
+               }
           })
      }
-</script> -->
+</script>
 </head>
 <body>
 <!-- Image and text -->
@@ -203,14 +209,15 @@
 						</thead>
 						<tbody>
 							<tr>
-							    <td align="center">    <select name="course" value="" style="width: 150px">
+							    <td align="center">    <select name="course" onchange="fetch_select(this.value)" style="width: 150px">
+                                            <option>Select Course</option>
                                             <?php
                                             include ('script/database-connect.php');
 
                                             $conn = connect();
 
                                             try {
-                                                 $stmt = $conn->prepare("SELECT courseid FROM teachcourse AS tc INNER JOIN section AS s ON tc.sectionid=s.sectionid WHERE tc.teacherid='5710000000'");
+                                                 $stmt = $conn->prepare("SELECT DISTINCT courseid FROM teachcourse AS tc INNER JOIN section AS s ON tc.sectionid=s.sectionid WHERE tc.teacherid='5710000000'");
                                                  $stmt->execute();
 
                                                  foreach($stmt->fetchAll() as $k) {
@@ -235,10 +242,7 @@
 							<td >&nbsp;</td>
 							</tr>
 							<tr>
-								 <td align="center"><select name="section" value="" style="width: 150px">
-	<option value=""> xxx</option>
-    <option value=""> xxx</option>
-    <option value=""> xxx</option>
+								 <td align="center"><select name="section" id="select_section" style="width: 150px">
      </select> </td>
 							</tr>
                             <tr>
