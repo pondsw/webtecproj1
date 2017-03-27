@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+<script type="text/javascript" src="js/permission.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -36,8 +37,9 @@
         <p></br>Learning Management System</p>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      
-      <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+
+        <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+
       </li>
     </ul>
   </div>
@@ -71,7 +73,7 @@
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -106,12 +108,12 @@
     <td width="241">&nbsp;</td>
   </tr>
  <tr> <td>&nbsp;</td></tr>
- 
+
 </table>
-             
-   
-  
-    
+
+
+
+
         </form>
       </div>
 
@@ -123,40 +125,42 @@
       </div>
     </div>
   </div>
-</div>                   
-        
-        
-        
-        
-        
+</div>
+
+
+
+
+
 				   </div>
 				</div>
 				</div>
 <!----END NAV----->
 				<div class="profile-usermenu">
-										<ul class="nav">
+				  <ul class="nav">
 
-					  
-						<li ><a href="teacher-courselistka.html">
+					  <li ><a href="teacher-home.html">
+							<i class="glyphicon glyphicon-home"></i>Home </a>
+					  </li>
+						<li ><a href="teacher-courselist.php">
 							<i class="fa fa-book" aria-hidden="true"></i>
 
 							<span>Course-list</span> </a>
 						</li>
 
 						<li class="active">
-							<a href="#" >
+							<a href="teacher-Atten.html" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
-                        
+
         				<li >
-							<a href="#" >
+							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
-                        
+
           				<li >
-							<a href="#" >
+							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
 							Find Student </a>
 						</li>
@@ -169,70 +173,69 @@
 		</div>
 	<!-- ADD HERE -->
 
-              
-			<div class="col-md-6 col-md-offset-0">
+
+			<div class="col-md-6 col-md-offset-1">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h1 class="panel-title">
-                      <i class="fa fa-search" aria-hidden="true"></i> Attendance</h1>
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i> Attendance</h1>
 
 					</div>
 					<div class="panel-body">
-						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+
 					</div>
-					
-				  <table width="500" border="0" align="center">
-  
-  <tr><td >&nbsp;</td></tr>
-  <tr>
-    <th><div align="center">Select Course</div></th>
+
+				  <table class="table-tb" width="500" border="0" align="center">
+
+  <tr >
+    <th height="50" ><div align="center">Select Course</div></th>
   </tr>
-  
- 
+
+
   <tr>
     <td><div align="center">
       <select name="course" value="" style="width: 345px">
         <option value=""> </option>
-        
+
       </select>
     </div></td>
   </tr>
-  <tr><td >&nbsp;</td></tr>
+
   <tr>
-    <th><div align="center">Select Section</div></th>
+    <th height="30"><div align="center">Select Section</div></th>
   </tr>
   <tr>
     <td><div align="center">
       <select name="section" value="" style="width: 345px">
         <option value=""> </option>
-        
+
       </select>
     </div></td>
   </tr>
-  <tr><td >&nbsp;</td></tr>
+
   <tr>
-    <th><div align="center">Date</div></th>
+    <th height="30"><div align="center">Date</div></th>
   </tr>
   <tr>
     <td><div align="center"><input type="date" name="date" width="300"></div></td>
   </tr>
-  <tr><td >&nbsp;</td></tr>
+
   <tr>
-    <th><div align="center">QRcode time</div></th>
+    <th height="30"><div align="center">QRcode time</div></th>
   </tr>
   <tr>
     <td><div align="center">
       <select name="stoptime" value="" style="width: 345px">
         <option value="">15 minutes</option>
         <option value="">30 minutes </option>
-        
+
       </select>
-     ;</div></td> 
+     ;</div></td>
   </tr>
-  <tr><td >&nbsp;</td></tr>
-  
+
+  <tr><td>&nbsp;</td></tr>
  <tr>
- <td><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal" ><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
+ <td ><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal"  ><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -243,16 +246,21 @@
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" border="0" align="center">
   <tr>
     <td colspan="4"><div align="center"><img src="images/qrcode-ex.jpg" alt="" width="250px" height="250px" class="img-responsive" align="middle"></div></td>
   </tr>
-    <tr><td >&nbsp;</td></tr>
+    <tr>
+  	<td width="110">&nbsp;</td>
+    <th width="130" style="font-size:18px">Code :</th>
+    <th style="font-size:36px; color:#F00" >asdasd </th>
+    <td width="120">&nbsp;</td>
+  </tr>
   <tr>
-    <td width="110">&nbsp;</td>
+  	<td width="110">&nbsp;</td>
     <th width="130" style="font-size:18px">QRcode time :</th>
-    <td width="122"><p> xx minutes</p></td>
+    <td width="122" style="font-size:26px"> xx minutes</td>
     <td width="120">&nbsp;</td>
   </tr>
     <tr><td >&nbsp;</td></tr>
@@ -269,24 +277,24 @@
     <td>&nbsp;</td>
   </tr>
 </table>
-             
-   
-  
-    
+
+
+
+
         </form>
       </div>
 
       <div class="modal-footer">
- <div align="center"><button type="button" class="btn btn-danger btn-lg btn-block">Close</button></div>
+ <div align="center"><button type="button" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-hidden="true">Close</button></div>
 
       </div>
     </div>
   </div>
-</div>   
- 
- 
+</div>
+
+
  </td></tr>
- 	
+
  <tr><td >&nbsp;</td></tr>
 </table>
 				</div>
@@ -297,7 +305,7 @@
 
 
       <!-- END ADD -->
-  
+
 
           <h3 class="panel-title">&nbsp;</h3>
 </div>

@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-
+<script type="text/javascript" src="js/permission.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
@@ -25,14 +25,22 @@
 	color: #FFFFFF;
 }
 </style>
-<!-- <script type="text/javascript">
-     function fetch_select(val){
-          $.ajax({
-               type: 'post',
-               url:
-          })
-     }
-</script> -->
+
+<link rel="stylesheet" media="screen" href="css/permission.css">
+<script type="text/javascript">
+function fetch_select(val){
+     $.ajax({
+          type: 'post',
+          url: 'fetch_section.php?teacherid="5710000000"',
+          data: {
+               get_option:val
+          },
+          success : function (response){
+               document.getElementById("select_section").innerHTML=response;
+          }
+     })
+}
+</script>
 </head>
 <body>
 <!-- Image and text -->
@@ -46,7 +54,8 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
 
-      <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -144,28 +153,29 @@
 
 				<div class="profile-usermenu">
 										<ul class="nav">
-
-
-						<li class="active"><a href="teacher-courselistka.html">
+						<li ><a href="teacher-home.html">
+							<i class="glyphicon glyphicon-home"></i>Home </a>
+					  	</li>
+						<li class="active"><a href="teacher-courselist.php">
 							<i class="fa fa-book" aria-hidden="true"></i>
 
 							<span>Course-list</span> </a>
 						</li>
 
 						<li>
-							<a href="#" >
+							<a href="teacher-Atten.html" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
 
         				<li>
-							<a href="#" >
+							<a href="teacher-crosscheck.html" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
 
           				<li>
-							<a href="#" >
+							<a href="teacher-findstudent-search.html" >
 							<i class="fa fa-search" aria-hidden="true"></i>
 							Find Student </a>
 						</li>
@@ -177,12 +187,12 @@
 			</div>
 		</div>
 	<!-- ADD HERE -->
-
+     <form action="teacher-studentlist.php" method="get">
               <div class="row">
 			<div class="col-md-6 col-md-offset-1">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title">Course</h3>
+						<h3 class="panel-title">Course list</h3>
 
 					</div>
 					<div class="panel-body">
@@ -195,7 +205,7 @@
 							<td >&nbsp;</td>
 							</tr>
 							<tr>
-							<th width="332" style="text-align:center">Select Course</th>
+							<th width="332" style="text-align:center ; font-size:18px">Select Course</th>
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
@@ -203,14 +213,15 @@
 						</thead>
 						<tbody>
 							<tr>
-							    <td align="center">    <select name="course" value="" style="width: 150px">
+							    <td align="center">    <select name="course" id="course" onchange="fetch_select(this.value)" style="width: 150px">
+                                            <option>Select Course</option>
                                             <?php
                                             include ('script/database-connect.php');
 
                                             $conn = connect();
 
                                             try {
-                                                 $stmt = $conn->prepare("SELECT courseid FROM teachcourse AS tc INNER JOIN section AS s ON tc.sectionid=s.sectionid WHERE tc.teacherid='5710000000'");
+                                                 $stmt = $conn->prepare("SELECT DISTINCT courseid FROM teachcourse AS tc INNER JOIN section AS s ON tc.sectionid=s.sectionid WHERE tc.teacherid='5710000000'");
                                                  $stmt->execute();
 
                                                  foreach($stmt->fetchAll() as $k) {
@@ -229,25 +240,23 @@
 							</tr>
 
 							<tr>
-								<th style="text-align:center">Select Section</th>
+								<th style="text-align:center ; font-size:18px">Select Section</th>
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
 							</tr>
 							<tr>
-								 <td align="center"><select name="section" value="" style="width: 150px">
-	<option value=""> xxx</option>
-    <option value=""> xxx</option>
-    <option value=""> xxx</option>
-     </select> </td>
+								 <td align="center"><select name="section" id="select_section" style="width: 150px">
+                                   </select> </td>
 							</tr>
-                            <tr>
-							<td >&nbsp;</td>
+                                   <tr>
+							      <td >&nbsp;</td>
 							</tr>
-                            							<tr>
-	<td align="center"> <a href="teacher-courselistka1.html" class="btn btn-warning btn-lg btn-block " >Submit</a> </td>
+                				<tr>
+	                                    <td align="center" ><input type="submit" class="btn btn-warning btn-lg btn-block"></td>
+
 							</tr>
-                            <tr>
+                                   <tr>
 							<td >&nbsp;</td>
 							</tr>
 						</tbody>
@@ -263,12 +272,10 @@
   </div>
 
           <h3 class="panel-title">&nbsp;</h3>
-</div>
-      </div>
-    </div>
-</div>
-</div>
 
+  
+
+</form>
 
 </body>
 </html>

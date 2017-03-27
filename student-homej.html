@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Bootstrap tutorials by Siam HTML</title>
+<title></title>
 
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,8 @@
 <script src="./js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/profilebar.css">
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
+<link rel="stylesheet" type="text/css" href="./css/modal.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -23,78 +25,280 @@
 	color: #FFFFFF;
 }
 </style>
+<script type="text/javascript" src="js/permission.js"></script>
 </head>
+<script>
+$(document).ready(function(){
+    $.post( "profile.php", { 'action' : 'checkprem' , 'type':  window.location.pathname },
+        function(response,status){
+          var obj = JSON.parse(response);
+        $("#fnamepro").html(obj["fname"]);
+        $("#lnamepro").html(obj["lname"]);
+        $("#idnamepro").html(obj["userid"]);
+        $("#typenamepro").html("Student");
+        $("#name_silde").html(obj["fname"]+"  "+obj["lname"]);
+
+        }
+    );
+
+    $("#fakeBrowse").click((function(){
+      // e.preventDefault();
+      // alert("test");
+      $.ajax({
+        url: "upload.php",
+        type: "POST",
+        data:  new FormData(this),
+        contentType: false,
+        cache: false,
+        processData:false,
+        success: function(data){
+          // $("#targetLayer").html(data);
+          alert(data);
+        },
+        error: function(){}
+        });
+    }));
+
+  });
+</script>
 <body>
 <!-- Image and text -->
 
-
+<!--NAVBAR-->
     <nav class="navbar navbar-light bg-faded">
     <div class="container-fluid">
       <div class="navbar-header" > <a class="navbar-brand"  href="#"> <img src="./images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" > </a>
         <p></br>Learning Management System</p>
       </div>
-      <ul class="nav navbar-right navbar-nav">
-        <!----<li><a href="#">Profile</a></li>
-                <li><a href="#">Logout</a></li>--->
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user pull-right"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><span class="glyphicon glyphicon-user pull-right"></span>Profile</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-out pull-right"> </span>Sign Out</a></li>
-          </ul>
-        </li>
-      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+    <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+      </li>
+    </ul>
   </div>
 </nav>
 <div class="container">
     <div class="row profile">
 		<div class="col-md-3">
-			<div class="profile-sidebar">
+		  <div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
-				<div class="profile-userpic">
+			<div class="profile-userpic">
 					<img src="./images/empty.png" width="50px" height="50px" class="img-responsive" alt="">
 
                  <div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						Name
+            <div id="name_silde"></div>
 					</div>
 					<div class="profile-usertitle-job">
 						Student
-				   </div>
-				</div>
-				</div>
-				<!-- END SIDEBAR USERPIC -->
-				<!-- SIDEBAR USER TITLE -->
+				   </div><div class="profile-usertitle-job">
+						<button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModalEdit">
 
-				<!-- END SIDEBAR USER TITLE -->
-				<!-- SIDEBAR BUTTONS -->
+          <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Edit profile </br>
+        </button>
+        <div id="myModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-success">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+             <h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile </h2>
 
-				<!-- END SIDEBAR BUTTONS -->
-				<!-- SIDEBAR MENU -->
+      </div>
+      <div class="modal-body">
+               <form class="form-horizontal col-sm-12">
+
+<table width="500" height="300" border="0" align="center">
+  <tr>
+    <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
+  </tr>
+  <tr> <td>&nbsp;</td></tr>
+       <tr>
+       <td colspan="2"> Change Profile Picture :   </td>
+       <td align="center"> <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange();"/>
+       <input type="file" id="filename" /></td>
+       <td>
+<input type="button" class="btn btn-info" value="Browse" id="fakeBrowse" onclick="HandleBrowseClick();"/></td>
+
+
+       </tr>
+  <tr> <td>&nbsp;</td></tr>
+    <tr align="center">
+    <th width="148" colspan="4">
+    	<div  data-toggle="collapse" data-target="#demo"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit password</a></div>
+
+        <!-- edit password--->
+  <div id="demo" class="collapse">
+		<table width="500" border="0">
+         	<tr> <td colspan="3">&nbsp;</td></tr>
+              <tr>
+                <td width="43">&nbsp;</td>
+                <td width="194">Old Passward</td>
+                <td width="249">&nbsp;</td>
+              </tr>
+              <tr>
+              <td>&nbsp;</td>
+                <td colspan="2">    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" placeholder="xxxxxxxxxx" width="300" >
+                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>New Password</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" width="300" placeholder="xxxxxxxxxx" >     </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">Comfirm new password    </td>
+             </tr>
+             <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="" width="300" placeholder="xxxxxxxxxx">     </td>
+              </tr>
+              <tr> <td colspan="3">&nbsp;</td></tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2"><button type="button" class="btn btn-warning btn-xs btn-block" data-toggle="collapse" data-target="#demo" >Submit</button></td>
+            </tr>
+            </table>
+
+
+  </div>
+</div>
+ 		<!---end edit password--->
+    </th>
+
+  </tr>
+   <tr> <td>&nbsp;</td></tr>
+   <tr> <td>&nbsp;</td></tr>
+  <tr>
+    <th width="148"><div id="userid" align="center">User ID :</div></th>
+    <td width="205">&nbsp;</td>
+    <th width="196"><div id="username" align="center">Name :</div></th>
+    <td width="241">&nbsp;</td>
+  </tr>
+<tr>    	<td>&nbsp;</td></tr>
+  <tr>
+    <th width="148"><div id="type" align="center">Type :</div></th>
+    <td width="205">&nbsp;</td>
+    <th width="196"><div align="center"></div></th>
+    <td width="241">&nbsp;</td>
+  </tr>
+ <tr> <td>&nbsp;</td></tr>
+
+</table>
+
+
+
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+      <tr>
+    <td colspan="4">
+      <div align="center"><button type="button" class="btn btn-success btn-lg btn-block ">SAVE</button></div></td>
+  </tr>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+		      </div>
+			  </div>
+			  </div>
+<!----END NAV----->
 				<div class="profile-usermenu">
 					<ul class="nav">
-
-					  <li class="active" ><a href="./template-admin.html">
+						<li class="active" ><a href="student-homej.html">
 							<i class="glyphicon glyphicon-home"></i>
 							Home </a>
 					  </li>
-						<li><a href="./stu-attend.html">
+						<li><a href="student-atten.html">
 							<i class="glyphicon glyphicon-check"></i>
-							<span>Attending</span> </a>
+							<span>Attendance</span> </a>
 						</li>
 
-						<li >
-							<a href="#" >
+						<li>
+							<a href="student-grade.html" >
 							<i class="glyphicon glyphicon-pencil"></i>
 							Grade report </a>
 						</li>
-
 
 					</ul>
 				</div>
 				<!-- END MENU -->
 			</div>
 		</div>
+
+
 	<!-- ADD HERE -->
+
+
+
+			<div class="col-md-6 col-md-offset-1">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title">
+                     	<i class="fa fa-user" aria-hidden="true"></i> Profile</h1>
+
+					</div>
+					<div class="panel-body">
+
+					</div>
+                    <table class="table-tb" width="528" border="0">
+                      <tr><th colspan="3">&nbsp; </th></tr>
+                      <tr >
+                        <td align="center" width="217" rowspan="4">
+                        <img src="./images/empty.png" width="190px" height="190px" class="img-responsive" alt=""></td>
+                        <th width="110" height="50">Firstname :</th>
+                        <td width="187"><div id="fnamepro"></div></td>
+                      </tr>
+                      <tr>
+                        <th  width="110" height="50">Lastname :</th>
+                        <td width="187"><div id="lnamepro" ></div></td>
+                      </tr>
+                      <tr>
+                        <th  width="110" height="50">Student ID : </th>
+                        <td width="187"><div id="idnamepro" >
+
+                        </div></div></td>
+                      </tr>
+                      <tr>
+                        <th  width="110" height="50"> Type : </th>
+                        <td width="187"><div id="typenamepro" ></div></td>
+                      </tr>
+                      <tr><th colspan="3">&nbsp; </th></tr>
+
+                    </table>
+
+
+
+
+
+
+
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ </td></tr>
+
+ <tr><td >&nbsp;</td></tr>
+</table>
+				</div>
+			</div>
 
 
 

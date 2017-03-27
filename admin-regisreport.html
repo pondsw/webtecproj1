@@ -20,6 +20,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/permission.js"></script>
 <style type="text/css">
 .navbar.navbar-light.bg-faded .nav.navbar-nav.navbar-right li a .glyphicon-glyphicon-log-in {
 	color: #FFFFFF;
@@ -55,8 +56,9 @@ textinput.value = fileinput.value;
         <p></br>Learning Management System</p>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      
-      <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+
+        <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+
       </li>
     </ul>
   </div>
@@ -74,7 +76,7 @@ textinput.value = fileinput.value;
 						Name
 					</div>
 					<div class="profile-usertitle-job">
-						Professor
+						Admin
 				   </div><div class="profile-usertitle-job">
 						<button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModalEdit">
 
@@ -90,7 +92,7 @@ textinput.value = fileinput.value;
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -125,12 +127,12 @@ textinput.value = fileinput.value;
     <td width="241">&nbsp;</td>
   </tr>
  <tr> <td>&nbsp;</td></tr>
- 
+
 </table>
-             
-   
-  
-    
+
+
+
+
         </form>
       </div>
 
@@ -142,12 +144,12 @@ textinput.value = fileinput.value;
       </div>
     </div>
   </div>
-</div>                   
-        
-        
-        
-        
-        
+</div>
+
+
+
+
+
 				   </div>
 				</div>
 				</div>
@@ -155,18 +157,18 @@ textinput.value = fileinput.value;
 				<div class="profile-usermenu">
 					<ul class="nav">
 
-					  <li ><a href="../w/su/template-admin.html">
-							<i class="glyphicon glyphicon-home"></i>
-							Home </a>
-					  </li>
+                        <li ><a href="admin-home.html">
+                            <i class="glyphicon glyphicon-home"></i>Home </a>
+                        </li>
 
- 						<li >
-							<a href="#" >
+						<li >
+							<a href="admin-createUser.html" >
 							<i class="fa fa-user-plus" aria-hidden="true"></i>
 							Create User </a>
 						</li>
+
 						<li class="active">
-							<a href="#">
+							<a href="admin-regisreport.html">
 							<i class="glyphicon glyphicon-book"></i>
 							Registration Report </a>
 						</li>
@@ -181,10 +183,10 @@ textinput.value = fileinput.value;
 
 
       <div class="col-md-0 col-md-offset-3" >
-                <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-default "  data-toggle="modal" data-target="#myModal">
           <span class="glyphicon glyphicon-plus"></span> Upload File </br>
         </button>
-         <button type="button" class="btn btn-success btn-sm" >
+         <button type="button" class="btn btn-success " >
           <span class="glyphicon glyphicon-check"></span> Submit </br>
         </button>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -192,7 +194,7 @@ textinput.value = fileinput.value;
     <div class="modal-content">
      <div class="modal-header modal-header-success">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3><i class="glyphicon glyphicon-plus"></i> Upload file</h3>
+          <h2><i class="glyphicon glyphicon-plus"></i> Upload file</h2>
 
       </div>
       <div class="modal-body">
@@ -203,7 +205,7 @@ textinput.value = fileinput.value;
 
        </tr>
        <tr>
-       <td> Choose File :   </td>
+       <th> Choose File :   </th>
        <td align="center"> <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange();"/>
        <input type="text" id="filename" readonly/></td>
 
@@ -234,7 +236,7 @@ textinput.value = fileinput.value;
         </div>
 <div class="panel panel-primary">
 				<div class="panel-heading">
-						<h3 class="panel-title">Registration Report</h3>
+						<h3 class="panel-title"> <i class="glyphicon glyphicon-book"></i> Registration Report</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 
