@@ -7,9 +7,9 @@
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="./css/bootstrap.min.css" rel="stylesheet">
-<link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
-<script src="./js/jquery.js"></script>
-<script src="./js/bootstrap.min.js"></script>
+<!-- <link href="./css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+<!-- <script src="./js/jquery.js"></script> -->
+<!-- <script src="./js/bootstrap.min.js"></script> -->
 <link rel="stylesheet" type="text/css" href="./css/profilebar.css">
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
@@ -25,6 +25,14 @@
 	color: #FFFFFF;
 }
 </style>
+<!-- <script type="text/javascript">
+     function fetch_select(val){
+          $.ajax({
+               type: 'post',
+               url:
+          })
+     }
+</script> -->
 </head>
 <body>
 <!-- Image and text -->
@@ -37,7 +45,7 @@
         <p></br>Learning Management System</p>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      
+
       <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
@@ -71,7 +79,7 @@
       </div>
       <div class="modal-body">
                <form class="form-horizontal col-sm-12">
-               
+
 <table width="500" height="300" border="0" align="center">
   <tr>
     <td colspan="4" align="center"><img src="./images/empty.png" width="100px" height="100px" class="img-responsive" alt=""></td>
@@ -106,12 +114,12 @@
     <td width="241">&nbsp;</td>
   </tr>
  <tr> <td>&nbsp;</td></tr>
- 
+
 </table>
-             
-   
-  
-    
+
+
+
+
         </form>
       </div>
 
@@ -123,12 +131,12 @@
       </div>
     </div>
   </div>
-</div>                   
-        
-        
-        
-        
-        
+</div>
+
+
+
+
+
 				   </div>
 				</div>
 				</div>
@@ -137,7 +145,7 @@
 				<div class="profile-usermenu">
 										<ul class="nav">
 
-					  
+
 						<li class="active"><a href="teacher-courselistka.html">
 							<i class="fa fa-book" aria-hidden="true"></i>
 
@@ -149,13 +157,13 @@
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
-                        
+
         				<li>
 							<a href="#" >
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							Cross check </a>
 						</li>
-                        
+
           				<li>
 							<a href="#" >
 							<i class="fa fa-search" aria-hidden="true"></i>
@@ -180,7 +188,7 @@
 					<div class="panel-body">
 						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
 					</div>
-					
+
 					<table class="" id="dev-table" align="center">
 						<thead>
                         <tr>
@@ -196,15 +204,30 @@
 						<tbody>
 							<tr>
 							    <td align="center">    <select name="course" value="" style="width: 150px">
-	<option value=""> 01418xxx</option>
-    <option value=""> 01418xxx</option>
-    <option value=""> 01418xxx</option>
+                                            <?php
+                                            include ('script/database-connect.php');
+
+                                            $conn = connect();
+
+                                            try {
+                                                 $stmt = $conn->prepare("SELECT courseid FROM teachcourse AS tc INNER JOIN section AS s ON tc.sectionid=s.sectionid WHERE tc.teacherid='5710000000'");
+                                                 $stmt->execute();
+
+                                                 foreach($stmt->fetchAll() as $k) {
+                                                      echo "<option value='" . $k['courseid'] ."'>" . $k['courseid'] ."</option>";
+                                                 }
+                                            }
+                                            catch(PDOException $e) {
+                                                 echo "Error: " . $e->getMessage();
+                                            }
+                                            $conn = null;
+                                            ?>
      </select>	</td>
 							</tr>
                             <tr>
 							<td >&nbsp;</td>
 							</tr>
-                            
+
 							<tr>
 								<th style="text-align:center">Select Section</th>
 							</tr>
