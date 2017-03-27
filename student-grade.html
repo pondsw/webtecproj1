@@ -73,7 +73,7 @@
 				<div class="profile-usermenu">
 					<ul class="nav">
 
-					  <li class="active" ><a href="./template-admin.html">
+					  <li><a href="./template-admin.html">
 							<i class="glyphicon glyphicon-home"></i>
 							Home </a>
 					  </li>
@@ -82,7 +82,7 @@
 							<span>Attending</span> </a>
 						</li>
 
-						<li >
+						<li class="active" >
 							<a href="#" >
 							<i class="glyphicon glyphicon-pencil"></i>
 							Grade report </a>
@@ -98,99 +98,43 @@
 
 
       <div class="col-md-0 col-md-offset-3" >
-                <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModal">
-          <span class="glyphicon glyphicon-plus"></span> Add professor </br>
-        </button>
-         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel" class="glyphicon glyphicon-plus"> Create Professor</h3>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal col-sm-12">
-          <div class="form-group">
-          <label>Firstname</label></br>
-          <input class="form-control required" placeholder="Your name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." type="text"></div>
-                    <div class="form-group">
-          <label>Lastname</label></br>
-          <input class="form-control required"data-placement="top" data-trigger="manual" type="text"></div>
-                    <div class="form-group">
-          <label>Type</label></br>
-          <select name="subject" value="">
-	<option value=""></option> </select></div>
-
-          <div class="form-group"><label>Teacher ID</label> </br>
-                    <input class="form-control required"data-placement="top" data-trigger="manual" type="text"></div>
-
-          <div class="form-group"><button type="submit" class="btn btn-success ">Submit</button> <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; The form is not valid. </p> <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button></div>
-        </form>
-      </div>
-      <div class="modal-footer">
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+              
         <div>
         </br>
         </div>
 <div class="panel panel-primary">
-				<div class="panel-heading">
-						<h3 class="panel-title">Professor</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+				<div class="panel-heading"><i class="glyphicon glyphicon-pencil"></i> Grade Report
+				  <div class="pull-right">
+					  <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 
-							</span>
-						</div>
+					  </span>
+					</div>
 			    </div>
+				<table width="99%" class="table table-hover" id="dev-table">
+				<tbody>
+				  <tr></tr>
+				</tbody>
+                <thead>
+                  <tr>
+                    <th width="9%"><div align="center">#
+                    </div>
+                    <th width="32%"><div align="center">Course name</div></th>
+                    <th width="33%"><div align="center">Course Id</div></th>
+                    <th width="26%"><div align="center">Grade</div></th>
+                  </tr>
+                <tbody>
+                  <tr>
+                    <td><div align="center">1</div></td>
+                    <td><div align="center"></div></td>
+                    <td><div align="center"></div></td>
+                    <td><div align="center"></div></td>
+                  </tr>
 
-
-				  <table width="99%" class="table table-hover" id="dev-table">
-					  <thead>
-						  <tr>
-							  <th width="5%">#
-							  <th width="18%">Firstname</th>
-    <th width="18%">Lastname</th>
-							  <th width="15%">Professor Id </th>
-							  <th width="15%">Type</th>
-
-
-						  </tr>
-                          <tbody>
-							<tr>
-								<td>1</td>
-								<td>ajajaj</td>
-								<td>kaa</td>
-								<td>123123123</td>
-
-                               <td>      </td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>ajajajaj</td>
-								<td>ssssss</td>
-								<td>123123</td>
-                                <td></td>
-
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>ajajajajajaja</td>
-								<td>fdfdgdgfdgf</td>
-								<td>123123123</td>
-                                <td></td>
-
-							</tr>
-						</tbody>
-					  </thead>
-
-				  </table>
-		  </div>
+                </tbody>
+                <tbody>
+                </tbody>
+				</table>
+</div>
 
 
 
