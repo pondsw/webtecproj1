@@ -174,7 +174,7 @@ function modalClose(){
 					  </li>
 
  						<li >
-							<a href="#" >
+							<a href="admin-createUser.html" >
 							<i class="fa fa-user-plus" aria-hidden="true"></i>
 							Create User </a>
 						</li>
