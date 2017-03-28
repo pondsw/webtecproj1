@@ -45,7 +45,9 @@
             }
           );
         }else{
-          alert("New Pass and re-new pass are different.");
+          // alert("New Pass and re-new pass are different.");
+          $('#showerr').css({"display": "block", "text-align": "center"});
+          $('#showerr').html("New Pass and re-new pass are different.");
         }
 
       });
@@ -59,7 +61,7 @@
         </br> &nbsp;
       </div>
       <ul class="nav navbar-nav navbar-right">
-      
+
       <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
@@ -97,12 +99,14 @@
 </div></td>
   </tr>
     <tr>
-    <td  height="10" colspan="2">&nbsp; </td>
+    <td  height="10" colspan="2">&nbsp; <p><div style="color:#F00 ">
+    <div id="showerr" style="text-align: center; display: none;"> hello</div>
+     </div></p></td>
 
   </tr>
   <tr>
     <td>
-    <input type="button" id"submitbtn" class="btn btn-success btn-lg btn-block" value="Submit">
+    <input type="button" id="submitbtn" class="btn btn-success btn-lg btn-block" value="Submit">
       <div align="center"></div></td>
   </tr>
   <td  height="10" colspan="2">&nbsp; </td>
