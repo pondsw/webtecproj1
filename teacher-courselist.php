@@ -165,7 +165,7 @@
 						</li>
 
 						<li>
-							<a href="teacher-Atten.html" >
+							<a href="teacher-Atten.php" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
@@ -275,7 +275,7 @@
 
           <h3 class="panel-title">&nbsp;</h3>
 
-  
+
 
 </form>
 

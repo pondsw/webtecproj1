@@ -6,6 +6,7 @@ $(document).ready(function(){
     alert("alert");
     // $("#message").empty();
     // $('#loading').show();
+    
     $.ajax({
       url: "upload-picture.php", // Url to which the request is send
       type: "POST",             // Type of request to be send, called as method
