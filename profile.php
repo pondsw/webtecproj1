@@ -19,15 +19,31 @@
       $type =  $_SESSION["type"];
       $lname =  $_SESSION["lname"];
       $fname =  $_SESSION["fname"];
-      if($str == $type){
+      if($type == "T" && strpos($t, 'teacher')){
         $arr = array('prem' => true);
         $arr['userid'] = $userid;
         $arr['type'] = $type;
         $arr['fname'] = $fname;
         $arr['lname'] = $lname;
         return json_encode($arr);
+      }else if($type == "S" && strpos($t, 'student')){
+        $arr = array('prem' => true);
+        $arr['userid'] = $userid;
+        $arr['type'] = $type;
+        $arr['fname'] = $fname;
+        $arr['lname'] = $lname;
+        return json_encode($arr);
+      }else if($type == "A" && strpos($t, 'admin')){
+        $arr = array('prem' => true);
+        $arr['userid'] = $userid;
+        $arr['type'] = $type;
+        $arr['fname'] = $fname;
+        $arr['lname'] = $lname;
+        return json_encode($arr);
+
+
       }else{
-        $arr = array('prem' => false);
+        $arr = array('prem' => $t);
         session_destroy();
         return  json_encode($arr);
       }
