@@ -69,7 +69,6 @@
         var fname = $('#searchname').val();
         $.post( "queryUserByType.php", {'type':type, 'fname':fname},
           function(response,status){
-            alert(response);
             $.post( "exportToPdf.php", {'export':response},
               function(response2,status){
                 alert(response2);
@@ -208,19 +207,19 @@ input[type=text]:focus {
             </button>
 
 
-  <button type="button" class="btn btn-success btn-sm" style="margin-top:5px;" id="export" >
-          <span class="glyphicon glyphicon-export" ></span> Export </br>
+  <!-- <button type="button" class="btn btn-success btn-sm" style="margin-top:5px;" id="export" >
+          <span class="glyphicon glyphicon-export" ></span> Export </br> -->
 
-         <button type="button" class="btn btn-success pull-right" style="margin-left: 10px" >
+         <button type="button" class="btn btn-success pull-right" style="margin-left: 10px" id="export">
           <span class="glyphicon glyphicon-export "></span> Export PDF</br>
 
         </button>
-         <select name="subject" class="pull-right" value="" style="width: 150px" >
+         <!-- <select name="subject" class="pull-right" value="" style="width: 150px" >
 	 		<option value=""> All</option>
             <option value=""> Professor</option>
     		<option value=""> Professor-lab</option>
     		<option value=""> Student</option>
-     	 </select>
+     	 </select> -->
 
 
 
