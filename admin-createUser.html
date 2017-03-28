@@ -69,7 +69,6 @@
         var fname = $('#searchname').val();
         $.post( "queryUserByType.php", {'type':type, 'fname':fname},
           function(response,status){
-            alert(response);
             $.post( "exportToPdf.php", {'export':response},
               function(response2,status){
                 alert(response2);
@@ -124,12 +123,13 @@ input[type=text]:focus {
       <div class="navbar-header" > <a class="navbar-brand"  href="#"><img src="images/logo2.png" width="170" height="50" class="d-inline-block align-top" alt="" ></a>
         </br> &nbsp;
       </div>
-	<ul class="nav navbar-nav navbar-right">
+
+      <ul class="nav navbar-nav navbar-right">
 
       <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
       </li>
     </ul>
-  </div>
+
   </div>
 </nav>
 <div class="container">
@@ -171,7 +171,7 @@ input[type=text]:focus {
 						</li>
 
 						<li >
-							<a href="admin-regisreport.html">
+							<a href="admin-regisreport.php">
 							<i class="glyphicon glyphicon-book"></i>
 							Registration Report </a>
 						</li>
@@ -205,19 +205,19 @@ input[type=text]:focus {
             </button>
 
 
-  <button type="button" class="btn btn-success btn-sm" style="margin-top:5px;" id="export" >
-          <span class="glyphicon glyphicon-export" ></span> Export </br>
+  <!-- <button type="button" class="btn btn-success btn-sm" style="margin-top:5px;" id="export" >
+          <span class="glyphicon glyphicon-export" ></span> Export </br> -->
 
-         <button type="button" class="btn btn-success pull-right" style="margin-left: 10px" >
+         <button type="button" class="btn btn-success pull-right" style="margin-left: 10px" id="export">
           <span class="glyphicon glyphicon-export "></span> Export PDF</br>
 
         </button>
-         <select name="subject" class="pull-right" value="" style="width: 150px" >
+         <!-- <select name="subject" class="pull-right" value="" style="width: 150px" >
 	 		<option value=""> All</option>
             <option value=""> Professor</option>
     		<option value=""> Professor-lab</option>
     		<option value=""> Student</option>
-     	 </select>
+     	 </select> -->
 
 
 
