@@ -41,11 +41,24 @@ $(document).ready(function() {
         url: "update-comment.php",
         data: { cid: $myBookId, comment: $("#textarea").val()},
         success:function( msg ) {
-         alert( "Data Saved: " + msg );
+
         }
        });
     });
 });
+
+function fetch_select(val){
+     $.ajax({
+          type: 'post',
+          url: 'fetch_grade.php',
+          data: {
+               get_option:val
+          },
+          success:function( msg ) {
+
+         }
+     })
+}
 </script>
 </head>
 <body>
@@ -93,7 +106,7 @@ $(document).ready(function() {
 
       </div>
       <div class="modal-body">
-               <form class="form-horizontal col-sm-12">
+               <form class="form-horizontal col-sm-12" >
 
 <table width="500" height="300" border="0" align="center">
   <tr>
@@ -232,11 +245,11 @@ $(document).ready(function() {
           								echo "<td><div align='center'>".$k['studentid']."</div></td>";
           								echo "<td><div align='center'>".$k['fname']." ".$k['lname']."</div></td>";
           								echo "<td><div align='center'>";
-          								echo "<select name='grade' style='width: 100px'>";
-          								echo "<option value='A'>A</option>";
-          								echo "<option value='B'>B</option>";
-          								echo "<option value='C'>C</option>";
-          								echo "<option value='D'>D</option>";
+          								echo "<select name='".$k['studentid']."' style='width: 100px' onchange='fetch_select(this.value)'>";
+          								echo "<option value='".$k['studentid']."-A'>A</option>";
+          								echo "<option value='".$k['studentid']."-B'>B</option>";
+          								echo "<option value='".$k['studentid']."-C'>C</option>";
+          								echo "<option value='".$k['studentid']."-D'>D</option>";
           							     echo "</select></div></td>";
                                                   echo "<td><div align='center'>";
                                                   echo "<button type='button' class='open-AddBookDialog btn btn-warning btn-sm'  data-toggle='modal' data-target='#myModal' data-id='".$k['studentid']."' data-name='".$k['fname']." ".$k['lname']."'>";
@@ -303,7 +316,6 @@ $(document).ready(function() {
 
 
                         </div>
-                        </form>
                       </div>
 
                     <div class="modal-footer">
@@ -325,11 +337,8 @@ $(document).ready(function() {
 				  </table>
 		  </div>
 
-              <button type="button" class="btn btn-success ; pull-right " >
-          <span class="glyphicon glyphicon-check"></span> Submit </br>
-        </button>
 
-
+</form>
 
       <!-- END ADD -->
   </div>

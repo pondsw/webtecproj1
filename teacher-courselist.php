@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-<script type="text/javascript" src="js/permission.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
@@ -25,21 +25,24 @@
 	color: #FFFFFF;
 }
 </style>
-
-<link rel="stylesheet" media="screen" href="css/permission.css">
 <script type="text/javascript">
-function fetch_select(val){
-     $.ajax({
-          type: 'post',
-          url: 'fetch_section.php?teacherid="5710000000"',
-          data: {
-               get_option:val
-          },
-          success : function (response){
-               document.getElementById("select_section").innerHTML=response;
-          }
-     })
-}
+     function fetch_select(val){
+          $.ajax({
+               type: 'post',
+               url: 'fetch_section.php?teacherid="5710000000"',
+               data: {
+                    get_option:val
+               },
+               success : function (response){
+                    document.getElementById("select_section").innerHTML=response;
+               }
+          })
+     }
+     $(document).ready(function(){
+          $("#buttonSubmit").click(function(){
+
+          });
+     });
 </script>
 </head>
 <body>
@@ -49,13 +52,12 @@ function fetch_select(val){
 <!--NAVBAR-->
     <nav class="navbar navbar-light bg-faded">
     <div class="container-fluid">
-      <div class="navbar-header" > <a class="navbar-brand"  href="#"> <img src="./images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" > </a>
-        <p></br>Learning Management System</p>
+      <div class="navbar-header" > <a class="navbar-brand"  href="#"><img src="images/logo2.png" width="170" height="50" class="d-inline-block align-top" alt="" ></a>
+        </br> &nbsp;
       </div>
       <ul class="nav navbar-nav navbar-right">
 
-      <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-      </li>
+      <li><a href="loginpage.html" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
