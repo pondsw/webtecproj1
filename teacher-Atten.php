@@ -40,18 +40,17 @@ function fetch_select(val){
      })
 }
 
-$(document).ready(function() {
-    $("#createButton").click(function(){
-         $.ajax({
-        type: "POST",
-        url: "gen-qrcode.php",
-        data: { cid : $("#course").val(), section: $("#section").val(), date : $("#date").val(), timestop : $("timestop").val()},
-        success:function( msg ) {
+function showInfo(){
+  $.ajax({
+  type: "post",
+  url: "gen-qrcode.php",
+  data: { courseid: "01418000", section : "1"},
+  success:function( msg ) {
+    alert("success");
+  }
+ });
+}
 
-        }
-       });
-    });
-});
 </script>
 </head>
 <body>
@@ -175,7 +174,7 @@ $(document).ready(function() {
 						</li>
 
 						<li class="active">
-							<a href="teacher-Atten.html" >
+							<a href="teacher-Atten.php" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
@@ -281,7 +280,7 @@ $(document).ready(function() {
 
   <tr><td>&nbsp;</td></tr>
  <tr>
- <td ><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal"  id="createButton"><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
+ <td ><button type="button" class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal" id="createSubmit" onclick="showInfo()"><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

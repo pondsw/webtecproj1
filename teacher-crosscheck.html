@@ -106,52 +106,44 @@ $(document).ready(function(){
        </tr>
   <tr> <td>&nbsp;</td></tr>
     <tr align="center">
-    <th width="148" colspan="4">
+    <td width="300" colspan="4" align="center">
     	<div  data-toggle="collapse" data-target="#demo"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit password</a></div>
 
         <!-- edit password--->
-  <div id="demo" class="collapse">
-		<table width="500" border="0">
-         	<tr> <td colspan="3">&nbsp;</td></tr>
-              <tr>
-                <td width="43">&nbsp;</td>
-                <td width="194">Old Passward</td>
-                <td width="249">&nbsp;</td>
-              </tr>
-              <tr>
-              <td>&nbsp;</td>
-                <td colspan="2">    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="oldpass" placeholder="xxxxxxxxxx" width="300" >
-                </td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>New Password</td>
-                <td>&nbsp;</td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="newpass" width="300" placeholder="xxxxxxxxxx" >     </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td colspan="2">Comfirm new password    </td>
-             </tr>
-             <tr>
-                <td>&nbsp;</td>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="connewpass" width="300" placeholder="xxxxxxxxxx">     </td>
-              </tr>
-              <tr> <td colspan="3">&nbsp;</td></tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td colspan="2"><button type="button" id="renew" class="btn btn-warning btn-xs btn-block" data-toggle="collapse" data-target="#demo" >Submit</button></td>
-            </tr>
-            </table>
-
-
+  <div  align="center"id="demo" class="collapse">
+		<table width="328" border="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Old Passward</td>
+  </tr>
+  <tr>
+    <td><input type="password" name="" id="oldpass" placeholder="xxxxx" width="300px" ></td>
+  </tr>
+  <tr>
+    <td>New Password</td>
+  </tr>
+  <tr>
+    <td><input type="password" name="" id="newpass" width="300" placeholder="xxxxx" ></td>
+  </tr>
+  <tr>
+    <td><div align="left">Comfirm new password </div></td>
+  </tr>
+  <tr>
+    <td><input type="password" name="" id="connewpass" width="300" placeholder="xxxxx"></td>
+  </tr>
+  <tr>
+    <td><input type="button" id="renew" class="btn btn-warning btn-xs btn-block" data-toggle="collapse" data-target="#demo" value="Submit" ></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
   </div>
 </div>
  		<!---end edit password--->
-    </th>
+    </td>
 
   </tr>
    <tr> <td>&nbsp;</td></tr>
@@ -192,7 +184,7 @@ $(document).ready(function(){
 						</li>
 
 						<li>
-							<a href="teacher-Atten.html" >
+							<a href="teacher-Atten.php" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>

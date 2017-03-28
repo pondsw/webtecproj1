@@ -168,13 +168,13 @@ function modalClose(){
 				<div class="profile-usermenu">
 					<ul class="nav">
 
-					  <li ><a href="../w/su/template-admin.html">
+					  <li ><a href="admin-home.html">
 							<i class="glyphicon glyphicon-home"></i>
 							Home </a>
 					  </li>
 
  						<li >
-							<a href="#" >
+							<a href="admin-createUser.html" >
 							<i class="fa fa-user-plus" aria-hidden="true"></i>
 							Create User </a>
 						</li>
