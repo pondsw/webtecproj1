@@ -39,6 +39,19 @@ function fetch_select(val){
           }
      })
 }
+
+$(document).ready(function() {
+    $("#createButton").click(function(){
+         $.ajax({
+        type: "POST",
+        url: "gen-qrcode.php",
+        data: { cid : $("#course").val(), section: $("#section").val(), date : $("#date").val(), timestop : $("timestop").val()},
+        success:function( msg ) {
+
+        }
+       });
+    });
+});
 </script>
 </head>
 <body>
@@ -268,7 +281,7 @@ function fetch_select(val){
 
   <tr><td>&nbsp;</td></tr>
  <tr>
- <td ><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal"  ><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
+ <td ><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal"  id="createButton"><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
