@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="./css/table-c.css">
 <link rel="stylesheet" type="text/css" href="./css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+<script type="text/javascript" src="js/permission.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,22 +26,6 @@
 	color: #FFFFFF;
 }
 </style>
-<script type="text/javascript" src="js/permission.js"></script>
-<script>
-$(document).ready(function(){
-    $.post( "profile.php", { 'action' : 'checkprem' , 'type':  window.location.pathname },
-        function(response,status){
-          var obj = JSON.parse(response);
-        $("#fnamepro").html(obj["fname"]);
-        $("#lnamepro").html(obj["lname"]);
-        $("#idnamepro").html(obj["userid"]);
-        $("#typenamepro").html("Teacher");
-        $("#name_silde").html(obj["fname"]+"  "+obj["lname"]);
-
-        }
-    );
-  });
-</script>
 </head>
 <body>
 <!-- Image and text -->
@@ -48,14 +33,14 @@ $(document).ready(function(){
 <!--NAVBAR-->
     <nav class="navbar navbar-light bg-faded">
     <div class="container-fluid">
-      <div class="navbar-header" > <a class="navbar-brand"  href="#"><img src="images/logo2.png" width="170" height="50" class="d-inline-block align-top" alt="" ></a>
+     <div class="navbar-header" > <a class="navbar-brand"  href="#"><img src="images/logo2.png" width="170" height="50" class="d-inline-block align-top" alt="" ></a>
         </br> &nbsp;
       </div>
       <ul class="nav navbar-nav navbar-right">
 
+        <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
 
-    <li><a id="logoutbtn" style="color:#FFF"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-
+      </li>
     </ul>
   </div>
 </nav>
@@ -68,9 +53,9 @@ $(document).ready(function(){
 					<img src="./images/empty.png" width="50px" height="50px" class="img-responsive" alt="">
 
                  <div class="profile-usertitle">
-                   <div class="profile-usertitle-name">
-                     <div id="name_silde"></div>
-         					</div>
+					<div class="profile-usertitle-name">
+						Name
+					</div>
 					<div class="profile-usertitle-job">
 						Professor
 				   </div><div class="profile-usertitle-job">
@@ -109,8 +94,25 @@ $(document).ready(function(){
 
   </tr>
    <tr> <td>&nbsp;</td></tr>
+  <tr>
+    <th width="148"><div align="center">User ID :</div></th>
+    <td width="205">&nbsp;</td>
+    <th width="196"><div align="center">Name :</div></th>
+    <td width="241">&nbsp;</td>
+  </tr>
+<tr>    	<td>&nbsp;</td></tr>
+  <tr>
+    <th width="148"><div align="center">Type :</div></th>
+    <td width="205">&nbsp;</td>
+    <th width="196"><div align="center"></div></th>
+    <td width="241">&nbsp;</td>
+  </tr>
+ <tr> <td>&nbsp;</td></tr>
 
 </table>
+
+
+
 
         </form>
       </div>
@@ -136,7 +138,7 @@ $(document).ready(function(){
 				<div class="profile-usermenu">
 				  <ul class="nav">
 
-					  <li class="active" ><a href="teacher-home.html">
+					  <li ><a href="teacher-home.html">
 							<i class="glyphicon glyphicon-home"></i>Home </a>
 					  </li>
 						<li ><a href="teacher-courselist.php">
@@ -145,7 +147,7 @@ $(document).ready(function(){
 							<span>Course-list</span> </a>
 						</li>
 
-						<li >
+						<li class="active">
 							<a href="teacher-Atten.php" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
@@ -172,51 +174,118 @@ $(document).ready(function(){
 	<!-- ADD HERE -->
 
 
-
 			<div class="col-md-6 col-md-offset-1">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h1 class="panel-title">
-                     	<i class="fa fa-user" aria-hidden="true"></i> Profile</h1>
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i> Attendance</h1>
 
 					</div>
 					<div class="panel-body">
 
-          </div>
-                    <table class="table-tb" width="528" border="0">
-                      <tr><th colspan="3">&nbsp; </th></tr>
-                      <tr >
-                        <td align="center" width="217" rowspan="4">
-                        <img src="./images/empty.png" width="190px" height="190px" class="img-responsive" alt=""></td>
-                        <th width="110" height="50">Firstname :</th>
-                        <td width="187"><div id="fnamepro"></div></td>
-                      </tr>
-                      <tr>
-                        <th  width="110" height="50">Lastname :</th>
-                        <td width="187"><div id="lnamepro" ></div></td>
-                      </tr>
-                      <tr>
-                        <th  width="110" height="50">Professor ID : </th>
-                        <td width="187"><div id="idnamepro" >
+					</div>
 
-                        </div></div></td>
-                      </tr>
-                      <tr>
-                        <th  width="110" height="50"> Type : </th>
-                        <td width="187"><div id="typenamepro" ></div></td>
-                      </tr>
-                      <tr><th colspan="3">&nbsp; </th></tr>
+				  <table class="table-tb" width="500" border="0" align="center">
 
-                    </table>
+  <tr >
+    <th height="50" ><div align="center">Select Course</div></th>
+  </tr>
 
 
+  <tr>
+    <td><div align="center">
+      <select name="course" value="" style="width: 345px">
+        <option value=""> </option>
 
+      </select>
+    </div></td>
+  </tr>
 
+  <tr>
+    <th height="30"><div align="center">Select Section</div></th>
+  </tr>
+  <tr>
+    <td><div align="center">
+      <select name="section" value="" style="width: 345px">
+        <option value=""> </option>
 
+      </select>
+    </div></td>
+  </tr>
 
+  <tr>
+    <th height="30"><div align="center">Date</div></th>
+  </tr>
+  <tr>
+    <td><div align="center"><input type="date" name="date" width="300"></div></td>
+  </tr>
+
+  <tr>
+    <th height="30"><div align="center">QRcode time</div></th>
+  </tr>
+  <tr>
+    <td><div align="center">
+      <select name="stoptime" value="" style="width: 345px">
+        <option value="">15 minutes</option>
+        <option value="">30 minutes </option>
+
+      </select>
+     ;</div></td>
+  </tr>
+
+  <tr><td>&nbsp;</td></tr>
+ <tr>
+ <td ><button class="btn btn-success btn-lg btn-block "  data-toggle="modal" data-target="#myModal"  ><i class="fa fa-qrcode" aria-hidden="true"></i> Create QR Code</button>
+ <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-danger">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                 <h1><i class="fa fa-qrcode" aria-hidden="true"></i> QRcode </h1>
 
       </div>
+      <div class="modal-body">
+               <form class="form-horizontal col-sm-12">
 
+<table width="500" border="0" align="center">
+  <tr>
+    <td colspan="4"><div align="center"><img src="images/qrcode-ex.jpg" alt="" width="250px" height="250px" class="img-responsive" align="middle"></div></td>
+  </tr>
+    <tr>
+  	<td width="110">&nbsp;</td>
+    <th width="130" style="font-size:18px">Code :</th>
+    <th style="font-size:36px; color:#F00" >asdasd </th>
+    <td width="120">&nbsp;</td>
+  </tr>
+  <tr>
+  	<td width="110">&nbsp;</td>
+    <th width="130" style="font-size:18px">QRcode time :</th>
+    <td width="122" style="font-size:26px"> xx minutes</td>
+    <td width="120">&nbsp;</td>
+  </tr>
+    <tr><td >&nbsp;</td></tr>
+  <tr>
+    <th><div align="right">Course ID :</div></th>
+    <td><div align="left"></div></td>
+    <th><div align="left">Section :</div></th>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th><div align="right">Date :</div></th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+ <div align="center"><button type="button" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-hidden="true">Close</button></div>
 
       </div>
     </div>
@@ -224,16 +293,12 @@ $(document).ready(function(){
 </div>
 
 
-                 </td></tr>
+ </td></tr>
 
-                 <tr><td >&nbsp;</td></tr>
-                </table>
+ <tr><td >&nbsp;</td></tr>
+</table>
 				</div>
 			</div>
-
-
-
-
 
 
 

@@ -173,7 +173,7 @@ function showInfo(){
 						</li>
 
 						<li class="active">
-							<a href="teacher-Atten.html" >
+							<a href="teacher-Atten.php" >
 							<i class="fa fa-check-square-o" aria-hidden="true"></i>
 							Attendance </a>
 						</li>
