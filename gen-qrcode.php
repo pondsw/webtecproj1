@@ -9,8 +9,11 @@
 
           $courseid = $_POST["courseid"];
           $section = $_POST["section"];
+          $code = $_POST["code"];
+          $date = $_POST["date"];
+          $timestop = $_POST["timestop"];
 
-          $courseInfo = "$courseid"." - "."$section";
+          $courseInfo = "127.0.0.1/student-atten-qrcode.php?code=$code";
 
           //Generate QR Code
           $qrCode = new QrCode();

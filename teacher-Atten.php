@@ -44,9 +44,9 @@ function showInfo(){
   $.ajax({
   type: "post",
   url: "gen-qrcode.php",
-  data: { courseid: "01418000", section : "1"},
+  data: { courseid: $("#course").val(), section : $("#section").val(), code : "abcd", date : $("#date").val(), timestop : $("#timestop").val()},
   success:function( msg ) {
-    alert("success");
+    alert("Create QR Code success");
   }
  });
 }
